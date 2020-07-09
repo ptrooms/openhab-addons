@@ -26,6 +26,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 public class PowerMeterModel {
     public static final BigDecimal VOLTAGE_FACTOR = new BigDecimal("0.001");
     public static final BigDecimal POWER_FACTOR = new BigDecimal("0.001");
+    public static final BigDecimal ENERGY_FACTOR = new BigDecimal("0.001");
 
     private BigDecimal voltage;
     private BigDecimal power;
@@ -48,7 +49,8 @@ public class PowerMeterModel {
     }
 
     public BigDecimal getEnergy() {
-        return energy != null ? energy : BigDecimal.ZERO;
+     // return energy != null ? energy : BigDecimal.ZERO;
+        return energy != null ? energy.multiply(ENERGY_FACTOR) : BigDecimal.ZERO;
     }
 
     public void setEnergy(BigDecimal energy) {
