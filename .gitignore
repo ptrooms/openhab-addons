@@ -1,3 +1,6 @@
+.vscode/
+.gitignore
+
 *.iml
 .DS_Store
 target/
