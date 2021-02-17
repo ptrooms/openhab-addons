@@ -160,7 +160,7 @@ public class NetworkHandler extends BaseThingHandler implements PresenceDetectio
             presenceDetection.setHostname(handlerConfiguration.hostname);
         } catch (UnknownHostException e) {
             // 16feb21: ptro changed to keep normal log clean. Debug displays all details.
-            // @ptrooms #233
+            // @ptrooms #233 , added debug and error
             logger.debug("Configuration for hostname is faulty", e);
             logger.error("Configuration for hostname {} is faulty", handlerConfiguration.hostname);
             updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.CONFIGURATION_ERROR, e.getLocalizedMessage());
