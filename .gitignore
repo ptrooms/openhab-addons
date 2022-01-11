@@ -1,5 +1,10 @@
 .vscode/
 .gitignore
+.settings
+.project
+*.log
+*.jar
+
 
 *.iml
 .DS_Store

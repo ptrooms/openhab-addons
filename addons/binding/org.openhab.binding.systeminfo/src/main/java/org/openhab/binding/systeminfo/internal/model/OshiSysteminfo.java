@@ -61,8 +61,13 @@ public class OshiSysteminfo implements SysteminfoInterface {
     private OSFileStore[] fileStores;
     private PowerSource[] powerSources;
     private HWDiskStore[] drives;
+	public int TestNumber = 33; 			// testPtro check/test if this works
+    public long testValue = 123;			// testPtro
 
     public static final int PRECISION_AFTER_DECIMAL_SIGN = 1;
+
+
+
 
     /**
      * Some of the methods used in this constructor execute native code and require execute permissions
@@ -166,6 +171,7 @@ public class OshiSysteminfo implements SysteminfoInterface {
     public DecimalType getCpuLoad() {
         double processorLoad = cpu.getSystemCpuLoad();
         BigDecimal processorLoadPercent = getPercentsValue(processorLoad);
+		TestNumber++ ; 		// testPtro
         return new DecimalType(processorLoadPercent);
     }
 
@@ -180,6 +186,7 @@ public class OshiSysteminfo implements SysteminfoInterface {
     public DecimalType getMemoryAvailable() {
         long availableMemory = memory.getAvailable();
         availableMemory = getSizeInMB(availableMemory);
+        logger.debug("Systeminfo testPtro: getMemoryAvailable={} , testValue={}  , using interval {} ", availableMemory, testValue, TestNumber  ); // testPtro
         return new DecimalType(availableMemory);
     }
 
@@ -378,6 +385,7 @@ public class OshiSysteminfo implements SysteminfoInterface {
     @Override
     public DecimalType getMemoryAvailablePercent() {
         long availableMemory = memory.getAvailable();
+		testValue = availableMemory;					// ptro test set fro print
         long totalMemory = memory.getTotal();
         if (totalMemory > 0) {
             double freePercentDecimal = (double) availableMemory / (double) totalMemory;
@@ -496,6 +504,7 @@ public class OshiSysteminfo implements SysteminfoInterface {
      */
     @Override
     public DecimalType getCpuLoad1() {
+		TestNumber++ ; // testPtro
         BigDecimal avarageCpuLoad = getAvarageCpuLoad(1);
         return avarageCpuLoad.signum() == -1 ? null : new DecimalType(avarageCpuLoad);
     }
