@@ -11,6 +11,13 @@ bundles/
 */plugin.xml_gen
 targetplatform/*.launch
 
+
+# ignore vscode
+.vscode/
+.classpath
+.project
+.settings
+
 distribution/openhabhome/logs/*.log
 distribution/openhabhome/*.zip
 distribution/openhabhome/etc/rrd4j/*.rrd
