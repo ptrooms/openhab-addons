@@ -4,8 +4,11 @@ target/
 src-gen/
 xtend-gen/
 bin/
+
+# Note these are locally only for reference
 bundles/io/org.openhab.io.multimedia.tts.marytts/lib/
 bundles/
+
 .antlr*
 .metadata/
 */plugin.xml_gen
