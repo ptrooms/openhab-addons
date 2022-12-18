@@ -269,6 +269,11 @@
         <bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.knx/${project.version}</bundle>
     </feature>
 
+	<feature name="openhab-binding-tibber" description="tibber Binding" version="${project.version}">
+		<feature>openhab-runtime-base</feature>
+		<bundle start-level="80">mvn:org.openhab.binding/org.openhab.binding.tibber/${project.version}</bundle>
+	</feature>
+
     <feature name="openhab-binding-kodi" description="Kodi Binding" version="${project.version}">
         <feature>openhab-runtime-base</feature>
         <feature>openhab-transport-http</feature>
