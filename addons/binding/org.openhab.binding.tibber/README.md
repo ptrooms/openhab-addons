@@ -2,6 +2,11 @@
 
 The Tibber Binding connects to the [Tibber API](https://developer.tibber.com), and enables users to retrieve electricity data:
 
+Note: this version adapted to Java8 in openHAB release 2.4.0
+To activate, place de resulting target/**.JAR file in the openHAB "addons" folder where the bundle will be picked up for activation.
+As of 20dec22 we have added Tomorrow prices and Pricelevel 
+
+
 * Default: Frequent polls are performed to retrieve electricity price and cost/consumption information
 * Optional: For users having Tibber Pulse, a websocket connection is established to retrieve live measurements  
 
@@ -66,7 +71,7 @@ The following input is required for initialization:
 Note: Tibber token is retrieved from your Tibber account:
 [Tibber Account](https://developer.tibber.com/settings/accesstoken)
 
-Note: Tibber HomeId is retrieved from [www.developer.com](https://developer.tibber.com/explorer): 
+Note: Tibber HomeId is retrieved from [developer.tibber.com](https://developer.tibber.com/explorer): 
 
 * Sign in (Tibber user account) and "load" personal token.
 * Copy query from below and paste into the Tibber API Explorer, and run query. 
@@ -106,6 +111,8 @@ demo.items:
 ```
 Number:Dimensionless       TibberAPICurrentTotal                 "Current Total Price [%.2f NOK]"            {channel="tibber:tibberapi:7cfae492:current_total"}
 DateTime                   TibberAPICurrentStartsAt              "Timestamp - Current Price"                 {channel="tibber:tibberapi:7cfae492:current_startsAt"}
+String                     TibberAPICurrentLevel                 "Price Level"                               {channel="tibber:tibberapi:7cfae492:current_level"}
+String                     TibberAPITomorrowPrices               "Price per hour tomorrow JSON array"        {channel="tibber:tibberapi:7cfae492:tomorrow_prices"}
 DateTime                   TibberAPIDailyFrom                    "Timestamp - Daily From"                    {channel="tibber:tibberapi:7cfae492:daily_from"}
 DateTime                   TibberAPIDailyTo                      "Timestamp - Daily To"                      {channel="tibber:tibberapi:7cfae492:daily_to"}
 Number:Dimensionless       TibberAPIDailyCost                    "Total Daily Cost [%.2f NOK]"               {channel="tibber:tibberapi:7cfae492:daily_cost"}
