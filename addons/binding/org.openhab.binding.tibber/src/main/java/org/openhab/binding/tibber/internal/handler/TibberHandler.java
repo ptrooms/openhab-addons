@@ -96,6 +96,7 @@ import org.eclipse.smarthome.core.library.types.QuantityType;
 import org.eclipse.smarthome.core.library.unit.SmartHomeUnits;
 import org.eclipse.smarthome.io.net.http.HttpUtil;
 
+/*
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
@@ -103,6 +104,13 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
+*/
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
+
 
 /*
 	import org.openhab.core.common.ThreadPoolManager;
@@ -238,8 +246,7 @@ public class TibberHandler extends BaseThingHandler {
 
         InputStream inputStream = tibberQuery.getInputStream(tibberConfig.getHomeid());
         String jsonResponse = HttpUtil.executeUrl("POST", url, httpHeader, inputStream, null, REQUEST_TIMEOUT);
-
-        logger.debug("API response5 abcde: {}", jsonResponse);
+        logger.debug("API response6: {}", jsonResponse);
 
         if (!jsonResponse.contains("error") && !jsonResponse.contains("<html>")) {
             if (getThing().getStatus() == ThingStatus.OFFLINE || getThing().getStatus() == ThingStatus.INITIALIZING) {
@@ -262,11 +269,28 @@ public class TibberHandler extends BaseThingHandler {
                     String timestamp = myObject.get("startsAt").toString().substring(1, 20);
                     updateState(CURRENT_STARTSAT, new DateTimeType(timestamp));
 
+				    if (jsonResponse.contains("tomorrow")) {
+                        JsonArray tomorrow = object.getAsJsonObject("data").getAsJsonObject("viewer")
+                                .getAsJsonObject("home").getAsJsonObject("currentSubscription").getAsJsonObject("priceInfo")
+                                .getAsJsonArray("tomorrow");
+                        updateState(TOMORROW_PRICES, new StringType(tomorrow.toString()));
+				    }
+
+				    if (jsonResponse.contains("today")) {
+                        JsonArray today = object.getAsJsonObject("data").getAsJsonObject("viewer")
+                                .getAsJsonObject("home").getAsJsonObject("currentSubscription").getAsJsonObject("priceInfo")
+                                .getAsJsonArray("today");
+                        updateState(TODAY_PRICES, new StringType(today.toString()));
+				    }
+
+
                 } catch (JsonSyntaxException e) {
                     updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
                             "Error communicating with Tibber API: " + e.getMessage());
                 }
             }
+
+
 //            if (jsonResponse.contains("daily")) {
            if (jsonResponse.contains("daily") && !jsonResponse.contains("\"daily\":{\"nodes\":[]")
                     && !jsonResponse.contains("\"daily\":null")) {

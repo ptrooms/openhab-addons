@@ -18,6 +18,9 @@ import java.nio.charset.StandardCharsets;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * The {@link TibberPriceConsumptionHandler} class contains fields mapping price info parameters.
  *
@@ -26,17 +29,50 @@ import org.eclipse.jdt.annotation.NonNullByDefault;
 @NonNullByDefault
 public class TibberPriceConsumptionHandler {
 
+/*
+	{viewer {home(id:"c237669e-90a8-4be2-ab4b-97e49715f652") 
+				{ currentSubscription {priceInfo {current {total startsAt level } 
+					tomorrow { startsAt total } 
+					}} 
+					daily: consumption(resolution: DAILY, last: 1) {nodes {from to cost unitPrice consumption consumptionUnit}} 
+					hourly: consumption(resolution: HOURLY, last: 1) {nodes {from to cost unitPrice consumption consumptionUnit}} 
+				}
+			}
+
+	}
+*/
+
+    private final Logger logger = LoggerFactory.getLogger(TibberPriceConsumptionHandler.class);
+
     public InputStream connectionInputStream(String homeId) {
         String connectionquery = "{\"query\": \"{viewer {home (id: \\\"" + homeId + "\\\") {id }}}\"}";
+        logger.debug("API request7a: {}", connectionquery );
         return new ByteArrayInputStream(connectionquery.getBytes(StandardCharsets.UTF_8));
     }
 
     public InputStream getInputStream(String homeId) {
-        String Query = "{\"query\": \"{viewer {home (id: \\\"" + homeId
-                + "\\\") {currentSubscription {priceInfo {current {total startsAt level }}} daily: consumption(resolution: DAILY, last: 1) {nodes {from to cost unitPrice consumption consumptionUnit}} hourly: consumption(resolution: HOURLY, last: 1) {nodes {from to cost unitPrice consumption consumptionUnit}}}}}\"}";
+        String Query = "{\"query\": \"{viewer {home (id: \\\"" + homeId + "\\\") {"
+                + " currentSubscription {priceInfo {current {total startsAt level }"
+				  + " today { startsAt total }"
+                  + " tomorrow { startsAt total }"
+                + " }}"
+//                + " daily: consumption(resolution: DAILY, last: 1) {nodes {from to cost unitPrice consumption consumptionUnit}}"
+//                + " hourly: consumption(resolution: HOURLY, last: 1) {nodes {from to cost unitPrice consumption consumptionUnit}}"
+                + " }}}\"}";
+        logger.debug("API request7b: {}", Query);
         return new ByteArrayInputStream(Query.getBytes(StandardCharsets.UTF_8));
     }
 
+/*
+    public InputStream getInputStream(String homeId) {
+        String Query = "{\"query\": \"{viewer {home (id: \\\"" + homeId + "\\\") {"
+				+ " currentSubscription {priceInfo {current {total startsAt level }} tomorrow { startsAt total } }"
+				+ " daily: consumption(resolution: DAILY, last: 1) {nodes {from to cost unitPrice consumption consumptionUnit}}" 
+				+ " hourly: consumption(resolution: HOURLY, last: 1) {nodes {from to cost unitPrice consumption consumptionUnit}}"
+				+ "}}}\"}";
+        return new ByteArrayInputStream(Query.getBytes(StandardCharsets.UTF_8));
+    }
+*/
     public InputStream getRealtimeInputStream(String homeId) {
         String realtimeenabledquery = "{\"query\": \"{viewer {home (id: \\\"" + homeId
                 + "\\\") {features {realTimeConsumptionEnabled }}}}\"}";
