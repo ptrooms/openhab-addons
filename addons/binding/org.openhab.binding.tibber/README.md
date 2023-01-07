@@ -2,10 +2,17 @@
 
 The Tibber Binding connects to the [Tibber API](https://developer.tibber.com), and enables users to retrieve electricity data:
 
-Note: this version adapted to Java8 in openHAB release 2.4.0
-To activate, place de resulting target/**.JAR file in the openHAB "addons" folder where the bundle will be picked up for activation.
-As of 20dec22 we have added Tomorrow prices and Pricelevel 
+Note: this version adapted to Java8 using openHAB release 2.4.0 using offline (discontinued) libraries.
 
+To compile use the following: $ mvn clean install -o -DskipTests=true -Dcheckstyle.skip
+
+To activate the bundle, place de resulting target/**.JAR file in the openHAB "addons" folder where the bundle will be picked up for activation.
+* As of 20dec22 we have added Tomorrow prices and Pricelevel array
+* As of 07jan23 we have added Monthly and Weekly JSON array and TOD for+with upcoming cheapiest price.
+
+Note/warning: The framework of openHAB is not properly (super)disposing a reweal of an addon causing lingering errors such as **"handler was already disposed"**
+at renewal of binding(s), things and items. Specifically at live-updates this can flood the console with these warmings.
+To circument, restart openHAB which clears the callback of items/things towards old binding.
 
 * Default: Frequent polls are performed to retrieve electricity price and cost/consumption information
 * Optional: For users having Tibber Pulse, a websocket connection is established to retrieve live measurements  
@@ -36,6 +43,18 @@ Tibber Default:
 | Hourly Consumption | Hourly Consumption (last/previous hour) | True      |
 | Hourly From        | Timestamp (hourly from)                 | True      |
 | Hourly To          | Timestamp (hourly to)                   | True      |
+| Weekly Cost        | Weekly Cost (last/previous)             | True      |
+| Weekly Consumption | Weekly Consumption (last/previous)      | True      |
+| Weekly From        | Timestamp (weekly from)                 | True      |
+| Weekly To          | Timestamp (weekly to)                   | True      |
+| Monthly Cost        | Monthly Cost (last/previous)           | True      |
+| Monthly Consumption | Monthly Consumption (last/previous)    | True      |
+| Monthly From        | Timestamp (monthly from)               | True      |
+| Monthly To          | Timestamp (monthly to)                 | True      |
+| Cheap Starts At    | Timestamp of cheapiest energy           | True      |
+| Cheap Price        | Price at cheapiest time                 | True      |
+
+
 
 Tibber Pulse (optional):
 
@@ -60,10 +79,13 @@ Tibber Pulse (optional):
 
 ## Binding Configuration
 
+To trace/debug on log console: log:set XXXXX org.openhab.binding.tibber 
+* TRACE will show the queried JSON arrays
+* DEBUG will show the API explorer query command
+
 To access and initiate the Tibber Binding, a Tibber user account is required.
 
 The following input is required for initialization:
-
 * Tibber token
 * Tibber HomeId
 * Refresh Interval (min 1 minute)
@@ -103,24 +125,47 @@ Retrieve personal token and HomeId from description above, and initialize/start 
 
 Tibber API will be autodiscovered if provided input is correct.
 
+demo.things
+```
+Thing tibber:tibberapi:7cfae492 [ token="5K4MVS-OjfWhK_4yrjOlFe1F6kJXPVf7eQYggo8ebAE", homeid="96a14971-525a-4420-aae9-e5aedaa129ff", refresh=15 ]	// demo
+```
 
 ## Full Example
 
-demo.items:
+Note: the Demo API key is activated for/with realtime measurement (using Tibber Pulse).
 
+demo.items:
 ```
 Number:Dimensionless       TibberAPICurrentTotal                 "Current Total Price [%.2f NOK]"            {channel="tibber:tibberapi:7cfae492:current_total"}
 DateTime                   TibberAPICurrentStartsAt              "Timestamp - Current Price"                 {channel="tibber:tibberapi:7cfae492:current_startsAt"}
 String                     TibberAPICurrentLevel                 "Price Level"                               {channel="tibber:tibberapi:7cfae492:current_level"}
+
+String                     TibberAPITodayPrices                  "Price per hour today JSON array"           {channel="tibber:tibberapi:7cfae492:today_prices"}
 String                     TibberAPITomorrowPrices               "Price per hour tomorrow JSON array"        {channel="tibber:tibberapi:7cfae492:tomorrow_prices"}
-DateTime                   TibberAPIDailyFrom                    "Timestamp - Daily From"                    {channel="tibber:tibberapi:7cfae492:daily_from"}
-DateTime                   TibberAPIDailyTo                      "Timestamp - Daily To"                      {channel="tibber:tibberapi:7cfae492:daily_to"}
-Number:Dimensionless       TibberAPIDailyCost                    "Total Daily Cost [%.2f NOK]"               {channel="tibber:tibberapi:7cfae492:daily_cost"}
-Number:Energy              TibberAPIDailyConsumption             "Total Daily Consumption [%.2f kWh]"        {channel="tibber:tibberapi:7cfae492:daily_consumption"}
+
 DateTime                   TibberAPIHourlyFrom                   "Timestamp - Hourly From"                   {channel="tibber:tibberapi:7cfae492:hourly_from"}
 DateTime                   TibberAPIHourlyTo                     "Timestamp - Hourly To"                     {channel="tibber:tibberapi:7cfae492:hourly_to"}
 Number:Dimensionless       TibberAPIHourlyCost                   "Total Hourly Cost [%.2f NOK]"              {channel="tibber:tibberapi:7cfae492:hourly_cost"}
 Number:Energy              TibberAPIHourlyConsumption            "Total Hourly Consumption [%.2f kWh]"       {channel="tibber:tibberapi:7cfae492:hourly_consumption"}
+
+DateTime                   TibberAPIDailyFrom                    "Timestamp - Daily From"                    {channel="tibber:tibberapi:7cfae492:daily_from"}
+DateTime                   TibberAPIDailyTo                      "Timestamp - Daily To"                      {channel="tibber:tibberapi:7cfae492:daily_to"}
+Number:Dimensionless       TibberAPIDailyCost                    "Total Daily Cost [%.2f NOK]"               {channel="tibber:tibberapi:7cfae492:daily_cost"}
+Number:Energy              TibberAPIDailyConsumption             "Total Daily Consumption [%.2f kWh]"        {channel="tibber:tibberapi:7cfae492:daily_consumption"}
+
+DateTime                   TibberAPIWeeklyFrom                   "Timestamp - Weekly From"                   {channel="tibber:tibberapi:7cfae492:weekly_from"}
+DateTime                   TibberAPIWeeklyTo                     "Timestamp - Weekly To"                     {channel="tibber:tibberapi:7cfae492:weekly_to"}
+Number:Dimensionless       TibberAPIWeeklyCost                   "Total Weekly Cost [%.2f NOK]"              {channel="tibber:tibberapi:7cfae492:weekly_cost"}
+Number:Energy              TibberAPIWeeklyConsumption            "Total Weekly Consumption [%.2f kWh]"       {channel="tibber:tibberapi:7cfae492:weekly_consumption"}
+
+DateTime                   TibberAPIMonthlyFrom                   "Timestamp - Monthly From"                 {channel="tibber:tibberapi:7cfae492:monthly_from"}
+DateTime                   TibberAPIMonthlyTo                     "Timestamp - Monthly To"                   {channel="tibber:tibberapi:7cfae492:monthly_to"}
+Number:Dimensionless       TibberAPIMonthlyCost                   "Total Monthly Cost [%.2f NOK]"            {channel="tibber:tibberapi:7cfae492:monthly_cost"}
+Number:Energy              TibberAPIMonthlyConsumption            "Total Monthly Consumption [%.2f kWh]"     {channel="tibber:tibberapi:7cfae492:monthly_consumption"}
+
+DateTime                   TibberAPICheapStartsAt                "Timestamp - Cheap "                        {channel="tibber:tibberapi:connection:cheap_startsAt"}
+Number:Dimensionless       TibberAPICheapPrice                   "price Cheap [%.2f]"                        {channel="tibber:tibberapi:connection:cheap_price"}
+
 DateTime                   TibberAPILiveTimestamp                "Timestamp - Live Measurement"              {channel="tibber:tibberapi:7cfae492:live_timestamp"}
 Number:Power               TibberAPILivePower                    "Live Power Consumption [W]"                {channel="tibber:tibberapi:7cfae492:live_power"}
 Number:Energy              TibberAPILiveLastMeterConsumption     "Last Meter Consumption [%.2f kWh]"         {channel="tibber:tibberapi:7cfae492:live_lastMeterConsumption"}
