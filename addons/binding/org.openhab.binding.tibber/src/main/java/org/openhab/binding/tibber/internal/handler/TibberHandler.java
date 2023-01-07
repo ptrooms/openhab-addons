@@ -73,6 +73,7 @@ import org.eclipse.smarthome.core.thing.ThingStatusInfo;
 import org.eclipse.smarthome.core.types.Command;
 import org.eclipse.smarthome.core.types.RefreshType;
 import org.eclipse.smarthome.core.library.types.QuantityType;
+import org.eclipse.smarthome.core.library.types.DecimalType;
 import org.eclipse.smarthome.core.library.types.StringType;
 import org.eclipse.smarthome.core.thing.binding.BridgeHandler;
 import org.eclipse.smarthome.core.thing.Bridge;
@@ -87,6 +88,8 @@ import org.slf4j.LoggerFactory;
 
 // import org.eclipse.jdt.annotation.NonNullByDefault;
 // import org.eclipse.jdt.annotation.Nullable;
+
+import java.math.RoundingMode;
 
 import org.eclipse.smarthome.core.common.ThreadPoolManager;
 import org.eclipse.smarthome.core.library.types.DateTimeType;
@@ -107,6 +110,7 @@ import com.google.gson.JsonSyntaxException;
 */
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
@@ -151,7 +155,6 @@ public class TibberHandler extends BaseThingHandler {
     private @Nullable ScheduledFuture<?> pollingJob;
     private @Nullable Future<?> sessionFuture;
     private String rtEnabled = "false";
-
     public TibberHandler(Thing thing) {
         super(thing);
     }
@@ -185,6 +188,7 @@ public class TibberHandler extends BaseThingHandler {
             InputStream connectionStream = tibberQuery.connectionInputStream(tibberConfig.getHomeid());
             response = HttpUtil.executeUrl("POST", BASE_URL, httpHeader, connectionStream, null,
                     REQUEST_TIMEOUT);
+            logger.debug("API1 response1b: {}", response);
 
             if (!response.contains("error") && !response.contains("<html>")) {
                 updateStatus(ThingStatus.ONLINE);
@@ -225,6 +229,22 @@ public class TibberHandler extends BaseThingHandler {
 						{"current":
 							{"total":1.3812,
 							"startsAt":"2022-12-20T01:00:00.000+01:00"}}},
+
+						 "today": [
+									  {
+										"tax": 0.1541,
+										"energy": -0.0036,
+										"startsAt": "2023-01-01T00:00:00.000+01:00",
+										"total": 0.1505
+									  }, 
+									  {
+										"tax": 0.1622,
+										"energy": 0.035,
+										"startsAt": "2023-01-01T23:00:00.000+01:00",
+										"total": 0.1972
+									  }
+									],
+
 							"daily":{"
 								nodes":[{"from":"2022-12-19T00:00:00.000+01:00",
 								"to":"2022-12-20T00:00:00.000+01:00",
@@ -246,7 +266,7 @@ public class TibberHandler extends BaseThingHandler {
 
         InputStream inputStream = tibberQuery.getInputStream(tibberConfig.getHomeid());
         String jsonResponse = HttpUtil.executeUrl("POST", url, httpHeader, inputStream, null, REQUEST_TIMEOUT);
-        logger.debug("API response6: {}", jsonResponse);
+        logger.trace("API2 response2b: {}", jsonResponse);
 
         if (!jsonResponse.contains("error") && !jsonResponse.contains("<html>")) {
             if (getThing().getStatus() == ThingStatus.OFFLINE || getThing().getStatus() == ThingStatus.INITIALIZING) {
@@ -262,6 +282,7 @@ public class TibberHandler extends BaseThingHandler {
                             .getAsJsonObject("current");
 
                     updateState(CURRENT_TOTAL, new DecimalType(myObject.get("total").toString()));
+                    // updateState(TODAY_AVERAGE, new DecimalType(myObject.get("total").toString()));
 
                     updateState(CURRENT_LEVEL, new StringType(myObject.get("level").toString()));
 			        logger.debug("API total: {}  level: {}", myObject.get("total").toString(), myObject.get("level").toString() );
@@ -269,19 +290,230 @@ public class TibberHandler extends BaseThingHandler {
                     String timestamp = myObject.get("startsAt").toString().substring(1, 20);
                     updateState(CURRENT_STARTSAT, new DateTimeType(timestamp));
 
-				    if (jsonResponse.contains("tomorrow")) {
-                        JsonArray tomorrow = object.getAsJsonObject("data").getAsJsonObject("viewer")
-                                .getAsJsonObject("home").getAsJsonObject("currentSubscription").getAsJsonObject("priceInfo")
-                                .getAsJsonArray("tomorrow");
-                        updateState(TOMORROW_PRICES, new StringType(tomorrow.toString()));
-				    }
+                    String cheap_timestamp = timestamp;
+                    // BigDecimal cheap_cost = new BigDecimal("0.00");		// read https://docs.oracle.com/javase/7/docs/api/java/math/BigDecimal.html
+					BigDecimal cheap_cost = BigDecimal.valueOf( myObject.get("total").getAsDouble() );
+                    boolean cheap_calculate = false;
+                    // cheap_cost = new DecimalType(myObject.get("total")
+/*
+	if starttime >= now
+ 	 scan today starting normalised at current hour + refreshtime
+	 determine from array today's best moment
+	 if tomorrow != better set start to tomorrow
+	 else set starttime at tommorrow best time
 
+
+	 lock this clocktime and wait until passed+2 hours
+*/
 				    if (jsonResponse.contains("today")) {
                         JsonArray today = object.getAsJsonObject("data").getAsJsonObject("viewer")
                                 .getAsJsonObject("home").getAsJsonObject("currentSubscription").getAsJsonObject("priceInfo")
                                 .getAsJsonArray("today");
                         updateState(TODAY_PRICES, new StringType(today.toString()));
+						String h_values = "";  
+						BigDecimal h_cnt = new BigDecimal("0");		// read https://docs.oracle.com/javase/7/docs/api/java/math/BigDecimal.html
+						BigDecimal h_avg = new BigDecimal("0.00");  
+						for (JsonElement h_today: today ) {						// loop
+				            if (h_today.getAsJsonObject().get("total") != null ) {	// no null
+				                h_values = h_values + " " + h_today.getAsJsonObject().get("total").getAsString();
+								h_avg = h_avg.add(BigDecimal.valueOf( h_today.getAsJsonObject().get("total").getAsDouble() ))  ;
+								h_cnt = h_cnt.add(new BigDecimal("1")) ;
+
+                                if (!cheap_calculate && cheap_timestamp.equals(h_today.getAsJsonObject().get("startsAt").toString().substring(1, 20)) ) {
+                                    cheap_calculate = true;
+                                }
+                                if ( cheap_calculate && cheap_cost.compareTo( BigDecimal.valueOf(h_today.getAsJsonObject().get("total").getAsDouble() )) >= 0 ) {
+                                       cheap_timestamp = h_today.getAsJsonObject().get("startsAt").toString().substring(1, 20);
+                                       // cheap_cost = new BigDecimal.valueOf(h_today.getAsJsonObject().get("total").getAsDouble() ) ;
+                                       cheap_cost = BigDecimal.valueOf(h_today.getAsJsonObject().get("total").getAsDouble() ) ;
+                                }  
+
+							}
+						}
+						if ( !(h_avg.compareTo(new BigDecimal("0.00")) == 0) && h_cnt.intValue() > 0 ) {
+						// if (h_avg.compareTo(new BigDecimal("0.00")) != 0 && h_cnt.intValue() > 0 ) {
+						// if (h_avg != new BigDecimal("0.00") && h_cnt.intValue() > 0 ) {
+							h_avg = h_avg.divide(h_cnt, RoundingMode.HALF_UP);
+	                        // updateState(TODAY_AVERAGE, new StringType(h_avg.toString()) );
+							// updateChannel(TODAY_AVERAGE, h_avg.toString());
+							updateState(TODAY_AVERAGE, new DecimalType(h_avg.toString()));
+							// updateState(DAILY_COST, new DecimalType(h_avg.toString()));
+							logger.trace("API3b today avg={}", h_avg );
+						}
+                        logger.trace("API3 today avg={} count={} array={}", h_avg, h_cnt, h_values );
+				    } // end of today
+
+				    if (jsonResponse.contains("tomorrow")) {
+                        JsonArray tomorrow = object.getAsJsonObject("data").getAsJsonObject("viewer")
+                                .getAsJsonObject("home").getAsJsonObject("currentSubscription").getAsJsonObject("priceInfo")
+                                .getAsJsonArray("tomorrow");
+                        updateState(TOMORROW_PRICES, new StringType(tomorrow.toString()));
+						String h_values = "";  
+						BigDecimal h_cnt = new BigDecimal("0");		// read https://docs.oracle.com/javase/7/docs/api/java/math/BigDecimal.html
+						BigDecimal h_avg = new BigDecimal("0.00");  // read https://docs.oracle.com/javase/7/docs/api/java/math/BigDecimal.html 
+						for (JsonElement h_tomorrow: tomorrow ) {						// loop
+				            if (h_tomorrow.getAsJsonObject().get("total") != null ) {	// no null
+				                h_values = h_values + " " + h_tomorrow.getAsJsonObject().get("total").getAsString();
+								h_avg = h_avg.add(BigDecimal.valueOf( h_tomorrow.getAsJsonObject().get("total").getAsDouble() ))  ;
+								h_cnt = h_cnt.add(new BigDecimal("1")) ;
+
+                                if (!cheap_calculate && cheap_timestamp.equals(h_tomorrow.getAsJsonObject().get("startsAt").toString().substring(1, 20)) ) {
+                                    cheap_calculate = true;
+                                }
+                                if ( cheap_calculate && cheap_cost.compareTo( BigDecimal.valueOf(h_tomorrow.getAsJsonObject().get("total").getAsDouble() )) >= 0 ) {
+                                       cheap_timestamp = h_tomorrow.getAsJsonObject().get("startsAt").toString().substring(1, 20);
+                                       // cheap_cost = new DecimalType(h_tomorrow.getAsJsonObject().get("total").getAsDouble() );
+                                       // cheap_cost = new DecimalType( BigDecimal.valueOf(h_today.getAsJsonObject().get("total").getAsDouble() ) );
+                                       // cheap_cost = new BigDecimal.valueOf(h_tomorrow.getAsJsonObject().get("total").getAsDouble() ) ;
+                                       cheap_cost = BigDecimal.valueOf(h_tomorrow.getAsJsonObject().get("total").getAsDouble() ) ;
+                                }  
+
+							}
+						}
+
+						if ( !(h_avg.compareTo(new BigDecimal("0.00")) == 0) && h_cnt.intValue() > 0 ) {
+						// if (h_avg != new BigDecimal("0.00") && h_cnt.intValue() > 0 ) {
+							h_avg = h_avg.divide(h_cnt, RoundingMode.HALF_UP);
+	                        // updateState(TOMORROW_AVERAGE, new StringType(h_avg.toString()) );
+							// updateChannel(TOMORROW_AVERAGE, h_avg.toString());
+							updateState(TOMORROW_AVERAGE, new DecimalType(h_avg.toString()));
+							logger.trace("API4b today avg={}", h_avg );
+		                    // updateState(CURRENT_TOTAL, new DecimalType(myObject.get("total").toString()));
+                        /*
+							} else if (h_avg.compareTo(new BigDecimal("0.00")) != 0 ) {
+								updateState(TOMORROW_AVERAGE, new DecimalType(h_avg.toString()));
+								  logger.trace("API4b tomorrow avg={} ", h_avg );
+		                    } else if ( h_cnt.intValue() > 0 ) {
+								updateState(TOMORROW_AVERAGE, new DecimalType(h_avg.toString()));
+								  logger.trace("API4c tomorrow avg={} ", h_avg );
+						*/
+						}
+                        logger.trace("API4 tomorrow avg={} count={} array={}", h_avg, h_cnt, h_values );
+
+                        logger.debug("API5 Activated {} CHEAP_COST {} at CHEAP_STARTSAT {} ", cheap_calculate, cheap_cost, cheap_timestamp );
+                        if ( cheap_calculate ) {
+                            updateState(CHEAP_STARTSAT, new DateTimeType(cheap_timestamp));
+							updateState(CHEAP_PRICE, new DecimalType(cheap_cost.toString()));
+						}
+
+				    } // end of tomorrow
+
+		//            if (jsonResponse.contains("hourly")) {
+				    if (jsonResponse.contains("hourly") && !jsonResponse.contains("\"hourly\":{\"nodes\":[]")
+				            && !jsonResponse.contains("\"hourly\":null")) {
+				        try {
+				            JsonArray hourly = object.getAsJsonObject("data").getAsJsonObject("viewer")
+				                    .getAsJsonObject("home").getAsJsonObject("hourly").getAsJsonArray("nodes");
+				            myObject = (JsonObject) hourly.get(hourly.size() - 1);
+
+				            /*
+				            JsonObject myObject = (JsonObject) object.getAsJsonObject("data").getAsJsonObject("viewer")
+				                    .getAsJsonObject("home").getAsJsonObject("hourly").getAsJsonArray("nodes").get(0);
+				            */
+				            String timestampHourlyFrom = myObject.get("from").toString().substring(1, 20);
+				            updateState(HOURLY_FROM, new DateTimeType(timestampHourlyFrom));
+
+				            String timestampHourlyTo = myObject.get("to").toString().substring(1, 20);
+				            updateState(HOURLY_TO, new DateTimeType(timestampHourlyTo));
+
+							logger.debug("HOURLY_TO: {} , HOURLY_TO {} ", timestampHourlyFrom, timestampHourlyTo );
+
+				            updateChannel(HOURLY_COST, myObject.get("cost").toString());
+				            updateChannel(HOURLY_CONSUMPTION, myObject.get("consumption").toString());
+
+				        } catch (JsonSyntaxException e) {
+				            updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
+				                    "Error communicating with Tibber API HOURLY: " + e.getMessage());
+				        }
 				    }
+		//            if (jsonResponse.contains("daily")) {
+				   if (jsonResponse.contains("daily") && !jsonResponse.contains("\"daily\":{\"nodes\":[]")
+				            && !jsonResponse.contains("\"daily\":null")) {
+				        try {
+
+				            JsonArray daily = object.getAsJsonObject("data").getAsJsonObject("viewer")
+				                    .getAsJsonObject("home").getAsJsonObject("daily").getAsJsonArray("nodes");
+				            myObject = (JsonObject) daily.get(daily.size() - 1);
+				           /*  
+				            JsonObject myObject = (JsonObject) object.getAsJsonObject("data").getAsJsonObject("viewer")
+				                    .getAsJsonObject("home").getAsJsonObject("daily").getAsJsonArray("nodes").get(0);
+				           */
+
+				            String timestampDailyFrom = myObject.get("from").toString().substring(1, 20);
+				            updateState(DAILY_FROM, new DateTimeType(timestampDailyFrom));
+
+				            String timestampDailyTo = myObject.get("to").toString().substring(1, 20);
+				            updateState(DAILY_TO, new DateTimeType(timestampDailyTo));
+
+							logger.debug("DAILY_FROM: {} , DAILY_TO {} ", timestampDailyFrom, timestampDailyTo );
+
+				            updateChannel(DAILY_COST, myObject.get("cost").toString());
+				            updateChannel(DAILY_CONSUMPTION, myObject.get("consumption").toString());
+
+
+				        } catch (JsonSyntaxException e) {
+				            updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
+				                    "Error communicating with Tibber API DAILY: " + e.getMessage());
+				        }
+				    }
+		//            if (jsonResponse.contains("hourly")) {
+				    if (jsonResponse.contains("weekly") && !jsonResponse.contains("\"weekly\":{\"nodes\":[]")
+				            && !jsonResponse.contains("\"weekly\":null")) {
+				        try {
+				            JsonArray weekly = object.getAsJsonObject("data").getAsJsonObject("viewer")
+				                    .getAsJsonObject("home").getAsJsonObject("weekly").getAsJsonArray("nodes");
+				            myObject = (JsonObject) weekly.get(weekly.size() - 1);
+
+				            /*
+				            JsonObject myObject = (JsonObject) object.getAsJsonObject("data").getAsJsonObject("viewer")
+				                    .getAsJsonObject("home").getAsJsonObject("hourly").getAsJsonArray("nodes").get(0);
+				            */
+				            String timestampWeeklyFrom = myObject.get("from").toString().substring(1, 20);
+				            updateState(WEEKLY_FROM, new DateTimeType(timestampWeeklyFrom));
+
+				            String timestampWeeklyTo = myObject.get("to").toString().substring(1, 20);
+				            updateState(WEEKLY_TO, new DateTimeType(timestampWeeklyTo));
+
+							logger.debug("WEEKLY_TO: {} , WEEKLY_TO {} ", timestampWeeklyFrom, timestampWeeklyTo );
+
+				            updateChannel(WEEKLY_COST, myObject.get("cost").toString());
+				            updateChannel(WEEKLY_CONSUMPTION, myObject.get("consumption").toString());
+
+				        } catch (JsonSyntaxException e) {
+				            updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
+				                    "Error communicating with Tibber API WEEKLY: " + e.getMessage());
+				        }
+				    }
+		//            if (jsonResponse.contains("monthly")) {
+				   if (jsonResponse.contains("monthly") && !jsonResponse.contains("\"monthly\":{\"nodes\":[]")
+				            && !jsonResponse.contains("\"monthly\":null")) {
+				        try {
+
+				            JsonArray month = object.getAsJsonObject("data").getAsJsonObject("viewer")
+				                    .getAsJsonObject("home").getAsJsonObject("monthly").getAsJsonArray("nodes");
+				            myObject = (JsonObject) month.get(month.size() - 1);
+				           /*  
+				            JsonObject myObject = (JsonObject) object.getAsJsonObject("data").getAsJsonObject("viewer")
+				                    .getAsJsonObject("home").getAsJsonObject("month").getAsJsonArray("nodes").get(0);
+				           */
+
+				            String timestampMonhtlyFrom = myObject.get("from").toString().substring(1, 20);
+				            updateState(MONTHLY_FROM, new DateTimeType(timestampMonhtlyFrom));
+
+				            String timestampMonhtlyTo = myObject.get("to").toString().substring(1, 20);
+				            updateState(MONTHLY_TO, new DateTimeType(timestampMonhtlyTo));
+
+							logger.debug("MONTHLY_FROM: {} , MONTHLY_TO {} ", timestampMonhtlyFrom, timestampMonhtlyTo );
+
+				            updateChannel(MONTHLY_COST, myObject.get("cost").toString());
+				            updateChannel(MONTHLY_CONSUMPTION, myObject.get("consumption").toString());
+
+
+				        } catch (JsonSyntaxException e) {
+				            updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
+				                    "Error communicating with Tibber API MONTHLY: " + e.getMessage());
+				        }
+				    } // end of month
 
 
                 } catch (JsonSyntaxException e) {
@@ -290,54 +522,6 @@ public class TibberHandler extends BaseThingHandler {
                 }
             }
 
-
-//            if (jsonResponse.contains("daily")) {
-           if (jsonResponse.contains("daily") && !jsonResponse.contains("\"daily\":{\"nodes\":[]")
-                    && !jsonResponse.contains("\"daily\":null")) {
-                try {
-                    JsonObject myObject = (JsonObject) object.getAsJsonObject("data").getAsJsonObject("viewer")
-                            .getAsJsonObject("home").getAsJsonObject("daily").getAsJsonArray("nodes").get(0);
-
-                    String timestampDailyFrom = myObject.get("from").toString().substring(1, 20);
-                    updateState(DAILY_FROM, new DateTimeType(timestampDailyFrom));
-
-                    String timestampDailyTo = myObject.get("to").toString().substring(1, 20);
-                    updateState(DAILY_TO, new DateTimeType(timestampDailyTo));
-
-					logger.debug("DAILY_FROM: {} , DAILY_TO {} ", timestampDailyFrom, timestampDailyTo );
-
-                    updateChannel(DAILY_COST, myObject.get("cost").toString());
-                    updateChannel(DAILY_CONSUMPTION, myObject.get("consumption").toString());
-
-
-                } catch (JsonSyntaxException e) {
-                    updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
-                            "Error communicating with Tibber API: " + e.getMessage());
-                }
-            }
-//            if (jsonResponse.contains("hourly")) {
-            if (jsonResponse.contains("hourly") && !jsonResponse.contains("\"hourly\":{\"nodes\":[]")
-                    && !jsonResponse.contains("\"hourly\":null")) {
-                try {
-                    JsonObject myObject = (JsonObject) object.getAsJsonObject("data").getAsJsonObject("viewer")
-                            .getAsJsonObject("home").getAsJsonObject("hourly").getAsJsonArray("nodes").get(0);
-
-                    String timestampHourlyFrom = myObject.get("from").toString().substring(1, 20);
-                    updateState(HOURLY_FROM, new DateTimeType(timestampHourlyFrom));
-
-                    String timestampHourlyTo = myObject.get("to").toString().substring(1, 20);
-                    updateState(HOURLY_TO, new DateTimeType(timestampHourlyTo));
-
-					logger.debug("HOURLY_TO: {} , HOURLY_TO {} ", timestampHourlyFrom, timestampHourlyTo );
-
-                    updateChannel(HOURLY_COST, myObject.get("cost").toString());
-                    updateChannel(HOURLY_CONSUMPTION, myObject.get("consumption").toString());
-
-                } catch (JsonSyntaxException e) {
-                    updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
-                            "Error communicating with Tibber API: " + e.getMessage());
-                }
-            }
         } else if (jsonResponse.contains("error")) {
             updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
                     "Error in response from Tibber API: " + jsonResponse);

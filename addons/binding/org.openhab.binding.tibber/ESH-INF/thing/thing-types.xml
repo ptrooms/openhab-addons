@@ -11,16 +11,28 @@
 			<channel id="current_total" typeId="price"/>
 			<channel id="current_startsAt" typeId="timestamp"/>
 			<channel id="current_level" typeId="level"/>
+			<channel id="today_average" typeId="price"/>
 			<channel id="today_prices" typeId="array_prices"/>
+			<channel id="tomorrow_average" typeId="price"/>
 			<channel id="tomorrow_prices" typeId="array_prices"/>
-			<channel id="daily_from" typeId="timestamp"/>
-			<channel id="daily_to" typeId="timestamp"/>
-			<channel id="daily_cost" typeId="cost"/>
-			<channel id="daily_consumption" typeId="consumption"/>
 			<channel id="hourly_from" typeId="timestamp"/>
 			<channel id="hourly_to" typeId="timestamp"/>
 			<channel id="hourly_cost" typeId="cost"/>
 			<channel id="hourly_consumption" typeId="consumption"/>
+			<channel id="daily_from" typeId="timestamp"/>
+			<channel id="daily_to" typeId="timestamp"/>
+			<channel id="daily_cost" typeId="cost"/>
+			<channel id="daily_consumption" typeId="consumption"/>
+			<channel id="weekly_from" typeId="timestamp"/>
+			<channel id="weekly_to" typeId="timestamp"/>
+			<channel id="weekly_cost" typeId="cost"/>
+			<channel id="weekly_consumption" typeId="consumption"/>
+			<channel id="monthly_from" typeId="timestamp"/>
+			<channel id="monthly_to" typeId="timestamp"/>
+			<channel id="monthly_cost" typeId="cost"/>
+			<channel id="monthly_consumption" typeId="consumption"/>
+			<channel id="cheap_startsAt" typeId="timestamp"/>
+			<channel id="cheap_price" typeId="price"/>
 			<channel id="live_timestamp" typeId="timestamp"/>
 			<channel id="live_power" typeId="power"/>
 			<channel id="live_lastMeterConsumption" typeId="consumption"/>
@@ -67,14 +79,14 @@
 	</channel-type>
 	<channel-type id="price">
 		<item-type>Number:Dimensionless</item-type>
-		<label>Current Total Price</label>
+		<label>Total Price</label>
 		<description>Total Price: Energy + Tax</description>
 		<state pattern="%.3f"></state>
 	</channel-type>
 	<channel-type id="cost">
 		<item-type>Number:Dimensionless</item-type>
 		<label>Total Cost</label>
-		<description>Cost at given time interval (e.g. hourly, daily, accumulated since midnight)</description>
+		<description>Cost at given time interval (e.g. hourly, daily, etc. accumulated since midnight)</description>
 		<state pattern="%.3f"></state>
 	</channel-type>
 	<channel-type id="level">

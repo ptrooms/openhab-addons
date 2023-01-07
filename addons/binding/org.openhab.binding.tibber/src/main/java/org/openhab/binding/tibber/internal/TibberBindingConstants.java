@@ -32,6 +32,8 @@ import org.eclipse.smarthome.core.thing.ThingTypeUID;
 @NonNullByDefault
 public class TibberBindingConstants {
 
+	// Note: this constants need als to be defined .... /ESH-INF/thing/thing-types.xml
+
     public static final String BINDING_ID = "tibber";
     public static final String JSON_CONTENT_TYPE = "application/json";
 
@@ -49,15 +51,33 @@ public class TibberBindingConstants {
     public static final String CURRENT_STARTSAT = "current_startsAt";
     public static final String CURRENT_LEVEL = "current_level";
     public static final String TODAY_PRICES = "today_prices";
+    public static final String TODAY_AVERAGE = "today_average";
     public static final String TOMORROW_PRICES = "tomorrow_prices";
-    public static final String DAILY_FROM = "daily_from";
-    public static final String DAILY_TO = "daily_to";
-    public static final String DAILY_COST = "daily_cost";
-    public static final String DAILY_CONSUMPTION = "daily_consumption";
+    public static final String TOMORROW_AVERAGE = "tomorrow_average";
+
     public static final String HOURLY_FROM = "hourly_from";
     public static final String HOURLY_TO = "hourly_to";
     public static final String HOURLY_COST = "hourly_cost";
     public static final String HOURLY_CONSUMPTION = "hourly_consumption";
+
+    public static final String DAILY_FROM = "daily_from";
+    public static final String DAILY_TO = "daily_to";
+    public static final String DAILY_COST = "daily_cost";
+    public static final String DAILY_CONSUMPTION = "daily_consumption";
+
+    public static final String WEEKLY_FROM = "weekly_from";
+    public static final String WEEKLY_TO = "weekly_to";
+    public static final String WEEKLY_COST = "weekly_cost";
+    public static final String WEEKLY_CONSUMPTION = "weekly_consumption";
+
+    public static final String MONTHLY_FROM = "monthly_from";
+    public static final String MONTHLY_TO = "monthly_to";
+    public static final String MONTHLY_COST = "monthly_cost";
+    public static final String MONTHLY_CONSUMPTION = "monthly_consumption";
+
+    public static final String CHEAP_STARTSAT = "cheap_startsAt";
+    public static final String CHEAP_PRICE = "cheap_price";
+
     public static final String LIVE_TIMESTAMP = "live_timestamp";
     public static final String LIVE_POWER = "live_power";
     public static final String LIVE_LASTMETERCONSUMPTION = "live_lastMeterConsumption";
