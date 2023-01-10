@@ -29,8 +29,6 @@
 			<default>5K4MVS-OjfWhK_4yrjOlFe1F6kJXPVf7eQYggo8ebAE</default>
 			<defaultid>96a14971-525a-4420-aae9-e5aedaa129ff</defaultid>
 
-			<personal>LmhJeth3m1noD8ENE3DwseHm7VeyWR41sENK4xs8DWU</personal>
-			<personalid>c237669e-90a8-4be2-ab4b-97e49715f652</personalid>
 		</parameter>
 
 		<parameter name="refresh" type="integer" required="false" min="1" max="60" unit="m" groupName="connection">
