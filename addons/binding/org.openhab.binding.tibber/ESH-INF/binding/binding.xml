@@ -24,11 +24,9 @@
 		<parameter name="token" type="text" required="true" groupName="authentication">
 			<context>token</context>
 			<label>Token</label>
-			<description>The API Token value Demo.</description>
-
+			<description>The API Token from https://developer.tibber.com/settings/access-token (default=Demo).</description>
 			<default>5K4MVS-OjfWhK_4yrjOlFe1F6kJXPVf7eQYggo8ebAE</default>
 			<defaultid>96a14971-525a-4420-aae9-e5aedaa129ff</defaultid>
-
 		</parameter>
 
 		<parameter name="refresh" type="integer" required="false" min="1" max="60" unit="m" groupName="connection">
