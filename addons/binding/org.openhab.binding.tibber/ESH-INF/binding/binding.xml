@@ -24,7 +24,7 @@
 		<parameter name="token" type="text" required="true" groupName="authentication">
 			<context>token</context>
 			<label>Token</label>
-			<description>The API Token value.</description>
+			<description>The API Token value Demo.</description>
 
 			<default>5K4MVS-OjfWhK_4yrjOlFe1F6kJXPVf7eQYggo8ebAE</default>
 			<defaultid>96a14971-525a-4420-aae9-e5aedaa129ff</defaultid>
