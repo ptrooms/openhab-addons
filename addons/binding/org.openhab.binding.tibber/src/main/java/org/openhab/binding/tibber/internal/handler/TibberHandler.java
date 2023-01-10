@@ -305,7 +305,7 @@ public class TibberHandler extends BaseThingHandler {
 
 	 lock this clocktime and wait until passed+2 hours
 */
-				    if (jsonResponse.contains("today")) {
+				    if (jsonResponse.contains("today") && !jsonResponse.contains("\"today\":[]")) {
                         JsonArray today = object.getAsJsonObject("data").getAsJsonObject("viewer")
                                 .getAsJsonObject("home").getAsJsonObject("currentSubscription").getAsJsonObject("priceInfo")
                                 .getAsJsonArray("today");
@@ -321,13 +321,16 @@ public class TibberHandler extends BaseThingHandler {
 
                                 if (!cheap_calculate && cheap_timestamp.equals(h_today.getAsJsonObject().get("startsAt").toString().substring(1, 20)) ) {
                                     cheap_calculate = true;
-                                }
-                                if ( cheap_calculate && cheap_cost.compareTo( BigDecimal.valueOf(h_today.getAsJsonObject().get("total").getAsDouble() )) >= 0 ) {
-                                       cheap_timestamp = h_today.getAsJsonObject().get("startsAt").toString().substring(1, 20);
-                                       // cheap_cost = new BigDecimal.valueOf(h_today.getAsJsonObject().get("total").getAsDouble() ) ;
-                                       cheap_cost = BigDecimal.valueOf(h_today.getAsJsonObject().get("total").getAsDouble() ) ;
-                                }  
-
+			                        // logger.trace("API6A index={} date={} cost={}", h_cnt, cheap_timestamp,  cheap_cost );
+                                } else {
+		                            if ( cheap_calculate && (cheap_cost.setScale(2, RoundingMode.UP)).compareTo( ((BigDecimal.valueOf(h_today.getAsJsonObject().get("total").getAsDouble())).setScale(2, RoundingMode.UP)) ) > 0 ) {
+		                                   cheap_timestamp = h_today.getAsJsonObject().get("startsAt").toString().substring(1, 20);
+		                                   // cheap_cost = new BigDecimal.valueOf(h_today.getAsJsonObject().get("total").getAsDouble() ) ;
+		                                   cheap_cost = BigDecimal.valueOf(h_today.getAsJsonObject().get("total").getAsDouble() ) ;
+					                       // logger.trace("API6B index={} date={} cost={}", h_cnt, cheap_timestamp,  cheap_cost );
+		                            }
+								}
+                                // logger.trace("API6C index={} date={} val={}", h_cnt, cheap_timestamp, (BigDecimal.valueOf(h_today.getAsJsonObject().get("total").getAsDouble())).setScale(2, RoundingMode.UP) );
 							}
 						}
 						if ( !(h_avg.compareTo(new BigDecimal("0.00")) == 0) && h_cnt.intValue() > 0 ) {
@@ -343,7 +346,7 @@ public class TibberHandler extends BaseThingHandler {
                         logger.trace("API3 today avg={} count={} array={}", h_avg, h_cnt, h_values );
 				    } // end of today
 
-				    if (jsonResponse.contains("tomorrow")) {
+				    if (jsonResponse.contains("tomorrow") && !jsonResponse.contains("\"tomorrow\":[]")) {
                         JsonArray tomorrow = object.getAsJsonObject("data").getAsJsonObject("viewer")
                                 .getAsJsonObject("home").getAsJsonObject("currentSubscription").getAsJsonObject("priceInfo")
                                 .getAsJsonArray("tomorrow");
@@ -359,15 +362,16 @@ public class TibberHandler extends BaseThingHandler {
 
                                 if (!cheap_calculate && cheap_timestamp.equals(h_tomorrow.getAsJsonObject().get("startsAt").toString().substring(1, 20)) ) {
                                     cheap_calculate = true;
-                                }
-                                if ( cheap_calculate && cheap_cost.compareTo( BigDecimal.valueOf(h_tomorrow.getAsJsonObject().get("total").getAsDouble() )) >= 0 ) {
-                                       cheap_timestamp = h_tomorrow.getAsJsonObject().get("startsAt").toString().substring(1, 20);
-                                       // cheap_cost = new DecimalType(h_tomorrow.getAsJsonObject().get("total").getAsDouble() );
-                                       // cheap_cost = new DecimalType( BigDecimal.valueOf(h_today.getAsJsonObject().get("total").getAsDouble() ) );
-                                       // cheap_cost = new BigDecimal.valueOf(h_tomorrow.getAsJsonObject().get("total").getAsDouble() ) ;
-                                       cheap_cost = BigDecimal.valueOf(h_tomorrow.getAsJsonObject().get("total").getAsDouble() ) ;
-                                }  
-
+                                } else {
+		                            // if ( cheap_calculate && cheap_cost.compareTo( BigDecimal.valueOf(h_tomorrow.getAsJsonObject().get("total").getAsDouble() )) >= 0 ) {
+		                            if ( cheap_calculate && (cheap_cost.setScale(2, RoundingMode.UP)).compareTo( ((BigDecimal.valueOf(h_tomorrow.getAsJsonObject().get("total").getAsDouble())).setScale(2, RoundingMode.UP) )) > 0 ) {
+		                                   cheap_timestamp = h_tomorrow.getAsJsonObject().get("startsAt").toString().substring(1, 20);
+		                                   // cheap_cost = new DecimalType(h_tomorrow.getAsJsonObject().get("total").getAsDouble() );
+		                                   // cheap_cost = new DecimalType( BigDecimal.valueOf(h_today.getAsJsonObject().get("total").getAsDouble() ) );
+		                                   // cheap_cost = new BigDecimal.valueOf(h_tomorrow.getAsJsonObject().get("total").getAsDouble() ) ;
+		                                   cheap_cost = BigDecimal.valueOf(h_tomorrow.getAsJsonObject().get("total").getAsDouble() ) ;
+		                            }  
+								}
 							}
 						}
 
@@ -377,7 +381,7 @@ public class TibberHandler extends BaseThingHandler {
 	                        // updateState(TOMORROW_AVERAGE, new StringType(h_avg.toString()) );
 							// updateChannel(TOMORROW_AVERAGE, h_avg.toString());
 							updateState(TOMORROW_AVERAGE, new DecimalType(h_avg.toString()));
-							logger.trace("API4b today avg={}", h_avg );
+							logger.trace("API4b tomorrow avg={}", h_avg );
 		                    // updateState(CURRENT_TOTAL, new DecimalType(myObject.get("total").toString()));
                         /*
 							} else if (h_avg.compareTo(new BigDecimal("0.00")) != 0 ) {
@@ -389,14 +393,13 @@ public class TibberHandler extends BaseThingHandler {
 						*/
 						}
                         logger.trace("API4 tomorrow avg={} count={} array={}", h_avg, h_cnt, h_values );
-
-                        logger.debug("API5 Activated {} CHEAP_COST {} at CHEAP_STARTSAT {} ", cheap_calculate, cheap_cost, cheap_timestamp );
-                        if ( cheap_calculate ) {
-                            updateState(CHEAP_STARTSAT, new DateTimeType(cheap_timestamp));
-							updateState(CHEAP_PRICE, new DecimalType(cheap_cost.toString()));
-						}
-
 				    } // end of tomorrow
+                    if ( cheap_calculate ) {
+                        updateState(CHEAP_STARTSAT, new DateTimeType(cheap_timestamp));
+						updateState(CHEAP_PRICE, new DecimalType(cheap_cost.toString()));
+	                    logger.debug("API5 Activated {} CHEAP_COST {} at CHEAP_STARTSAT {} ", cheap_calculate, cheap_cost, cheap_timestamp );
+					}
+
 
 		//            if (jsonResponse.contains("hourly")) {
 				    if (jsonResponse.contains("hourly") && !jsonResponse.contains("\"hourly\":{\"nodes\":[]")
@@ -416,7 +419,7 @@ public class TibberHandler extends BaseThingHandler {
 				            String timestampHourlyTo = myObject.get("to").toString().substring(1, 20);
 				            updateState(HOURLY_TO, new DateTimeType(timestampHourlyTo));
 
-							logger.debug("HOURLY_TO: {} , HOURLY_TO {} ", timestampHourlyFrom, timestampHourlyTo );
+							logger.debug("HOURLY_FROM: {} , HOURLY_TO {} ", timestampHourlyFrom, timestampHourlyTo );
 
 				            updateChannel(HOURLY_COST, myObject.get("cost").toString());
 				            updateChannel(HOURLY_CONSUMPTION, myObject.get("consumption").toString());
@@ -474,7 +477,7 @@ public class TibberHandler extends BaseThingHandler {
 				            String timestampWeeklyTo = myObject.get("to").toString().substring(1, 20);
 				            updateState(WEEKLY_TO, new DateTimeType(timestampWeeklyTo));
 
-							logger.debug("WEEKLY_TO: {} , WEEKLY_TO {} ", timestampWeeklyFrom, timestampWeeklyTo );
+							logger.debug("WEEKLY_FROM: {} , WEEKLY_TO {} ", timestampWeeklyFrom, timestampWeeklyTo );
 
 				            updateChannel(WEEKLY_COST, myObject.get("cost").toString());
 				            updateChannel(WEEKLY_CONSUMPTION, myObject.get("consumption").toString());
