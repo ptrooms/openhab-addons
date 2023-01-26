@@ -177,7 +177,8 @@ public class NetworkHandler extends BaseThingHandler implements PresenceDetectio
             // therefore we assume all ping devices are iOS devices. If this
             // does not work for all users for some obscure reason, we can make
             // this a thing configuration variable.
-            presenceDetection.setIOSDevice(true);
+			// ptro 26jan23 13u39 disabled   presenceDetection.setIOSDevice(true);
+            presenceDetection.setIOSDevice(false);
             // Hand over binding configurations to the network service
             presenceDetection.setUseDhcpSniffing(configuration.allowDHCPlisten);
             presenceDetection.setUseIcmpPing(configuration.allowSystemPings);
