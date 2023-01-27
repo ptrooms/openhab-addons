@@ -42,8 +42,9 @@ public class DHCPListenService {
                 IPRequestReceivedCallback listener = registeredListeners.get(ipAddress);
                 if (listener != null) {
                     listener.dhcpRequestReceived(ipAddress);
+                    logger.info("DHCP/ptro request for known address: {}", ipAddress);
                 } else {
-                    logger.trace("DHCP request for unknown address: {}", ipAddress);
+                    logger.info("DHCP/ptro request for unknown address: {}", ipAddress);
                 }
             });
             DHCPListenService.instance = instance;
