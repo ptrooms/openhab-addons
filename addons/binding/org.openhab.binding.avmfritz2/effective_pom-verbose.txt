@@ -1,0 +1,2271 @@
+Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-10T17:41:47+01:00)
+Maven home: /opt/apache-maven-3.3.9
+Java version: 1.8.0_382, vendor: Private Build
+Java home: /usr/lib/jvm/java-8-openjdk-amd64/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "4.15.0-219-generic", arch: "amd64", family: "unix"
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: javax.enterprise.inject.* < plexus.core
+[DEBUG]   Imported: javax.enterprise.util.* < plexus.core
+[DEBUG]   Imported: javax.inject.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution.scope < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.rtinfo < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.* < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.artifact < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.collection < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.deployment < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.graph < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.installation < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.internal.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.metadata < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.repository < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.resolution < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.spi < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.transfer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.version < plexus.core
+[DEBUG]   Imported: org.slf4j.* < plexus.core
+[DEBUG]   Imported: org.slf4j.helpers.* < plexus.core
+[DEBUG]   Imported: org.slf4j.spi.* < plexus.core
+[DEBUG] Populating class realm maven.api
+[INFO] Error stacktraces are turned on.
+[DEBUG] Reading global settings from /opt/apache-maven-3.3.9/conf/settings.xml
+[DEBUG] Reading user settings from /home/pafoxp/.m2/settings.xml
+[DEBUG] Reading global toolchains from /opt/apache-maven-3.3.9/conf/toolchains.xml
+[DEBUG] Reading user toolchains from /home/pafoxp/.m2/toolchains.xml
+[DEBUG] Using local repository at /home/pafoxp/.m2/repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for /home/pafoxp/.m2/repository
+[INFO] Scanning for projects...
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1, ConflictMarker.markTime=0, ConflictMarker.nodeCount=97, ConflictIdSorter.graphTime=1, ConflictIdSorter.topsortTime=0, ConflictIdSorter.conflictIdCount=45, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=6, ConflictResolver.conflictItemCount=96, DefaultDependencyCollector.collectTime=225, DefaultDependencyCollector.transformTime=10}
+[DEBUG] org.eclipse.tycho:tycho-maven-plugin:jar:1.2.0:
+[DEBUG]    org.eclipse.tycho:tycho-core:jar:1.2.0:compile
+[DEBUG]       org.apache.maven:maven-core:jar:3.0:compile
+[DEBUG]          org.apache.maven:maven-model:jar:3.0:compile
+[DEBUG]          org.apache.maven:maven-settings:jar:3.0:compile
+[DEBUG]          org.apache.maven:maven-settings-builder:jar:3.0:compile
+[DEBUG]          org.apache.maven:maven-repository-metadata:jar:3.0:compile
+[DEBUG]          org.apache.maven:maven-artifact:jar:3.0:compile
+[DEBUG]          org.apache.maven:maven-model-builder:jar:3.0:compile
+[DEBUG]          org.apache.maven:maven-aether-provider:jar:3.0:runtime
+[DEBUG]          org.sonatype.aether:aether-impl:jar:1.7:compile
+[DEBUG]             org.sonatype.aether:aether-spi:jar:1.7:compile
+[DEBUG]          org.sonatype.aether:aether-api:jar:1.7:compile
+[DEBUG]          org.sonatype.aether:aether-util:jar:1.7:compile
+[DEBUG]          org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2:compile
+[DEBUG]             org.sonatype.sisu:sisu-inject-bean:jar:1.4.2:compile
+[DEBUG]                org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7:compile
+[DEBUG]          org.codehaus.plexus:plexus-interpolation:jar:1.14:compile
+[DEBUG]          org.codehaus.plexus:plexus-classworlds:jar:2.2.3:compile
+[DEBUG]          org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3:compile
+[DEBUG]             org.sonatype.plexus:plexus-cipher:jar:1.7:compile
+[DEBUG]       org.apache.maven:maven-plugin-api:jar:3.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-utils:jar:3.0.24:compile
+[DEBUG]       org.codehaus.plexus:plexus-archiver:jar:3.4:compile
+[DEBUG]          org.codehaus.plexus:plexus-io:jar:2.7.1:compile
+[DEBUG]          commons-io:commons-io:jar:2.5:compile
+[DEBUG]          org.apache.commons:commons-compress:jar:1.15:compile
+[DEBUG]             org.objenesis:objenesis:jar:2.6:compile
+[DEBUG]          org.iq80.snappy:snappy:jar:0.4:compile
+[DEBUG]          org.tukaani:xz:jar:1.5:runtime
+[DEBUG]       org.eclipse.tycho:org.eclipse.osgi.compatibility.state:jar:1.1.100.v20180131-1413:compile
+[DEBUG]       org.eclipse.tycho:sisu-equinox-embedder:jar:1.2.0:compile
+[DEBUG]          org.eclipse.tycho:org.eclipse.osgi:jar:3.13.0.v20180226-1711:compile
+[DEBUG]          org.eclipse.tycho:sisu-equinox-api:jar:1.2.0:compile
+[DEBUG]       org.eclipse.tycho:tycho-metadata-model:jar:1.2.0:compile
+[DEBUG]          de.pdark:decentxml:jar:1.3:compile
+[DEBUG]       org.eclipse.tycho:tycho-embedder-api:jar:1.2.0:compile
+[DEBUG]          org.eclipse.tycho:org.eclipse.tycho.embedder.shared:jar:1.2.0:compile
+[DEBUG]       org.eclipse.tycho:org.eclipse.tycho.core.shared:jar:1.2.0:compile
+[DEBUG]       org.apache.maven:maven-compat:jar:3.0:compile
+[DEBUG]          org.apache.maven.wagon:wagon-provider-api:jar:1.0-beta-6:compile
+[DEBUG]    org.eclipse.tycho:tycho-p2-facade:jar:1.2.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1:compile
+[DEBUG]       org.eclipse.tycho:org.eclipse.tycho.p2.resolver.shared:jar:1.2.0:compile
+[DEBUG]       org.eclipse.tycho:org.eclipse.tycho.p2.tools.shared:jar:1.2.0:compile
+[DEBUG] Created new class realm extension>org.eclipse.tycho:tycho-maven-plugin:1.2.0
+[DEBUG] Importing foreign packages into class realm extension>org.eclipse.tycho:tycho-maven-plugin:1.2.0
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm extension>org.eclipse.tycho:tycho-maven-plugin:1.2.0
+[DEBUG]   Included: org.eclipse.tycho:tycho-maven-plugin:jar:1.2.0
+[DEBUG]   Included: org.eclipse.tycho:tycho-core:jar:1.2.0
+[DEBUG]   Included: org.sonatype.aether:aether-util:jar:1.7
+[DEBUG]   Included: org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[DEBUG]   Included: org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.14
+[DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.0.24
+[DEBUG]   Included: org.codehaus.plexus:plexus-archiver:jar:3.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-io:jar:2.7.1
+[DEBUG]   Included: commons-io:commons-io:jar:2.5
+[DEBUG]   Included: org.apache.commons:commons-compress:jar:1.15
+[DEBUG]   Included: org.objenesis:objenesis:jar:2.6
+[DEBUG]   Included: org.iq80.snappy:snappy:jar:0.4
+[DEBUG]   Included: org.tukaani:xz:jar:1.5
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.osgi.compatibility.state:jar:1.1.100.v20180131-1413
+[DEBUG]   Included: org.eclipse.tycho:sisu-equinox-embedder:jar:1.2.0
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.osgi:jar:3.13.0.v20180226-1711
+[DEBUG]   Included: org.eclipse.tycho:sisu-equinox-api:jar:1.2.0
+[DEBUG]   Included: org.eclipse.tycho:tycho-metadata-model:jar:1.2.0
+[DEBUG]   Included: de.pdark:decentxml:jar:1.3
+[DEBUG]   Included: org.eclipse.tycho:tycho-embedder-api:jar:1.2.0
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.tycho.embedder.shared:jar:1.2.0
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.tycho.core.shared:jar:1.2.0
+[DEBUG]   Included: org.eclipse.tycho:tycho-p2-facade:jar:1.2.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.tycho.p2.resolver.shared:jar:1.2.0
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.tycho.p2.tools.shared:jar:1.2.0
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=0, ConflictMarker.markTime=1, ConflictMarker.nodeCount=226, ConflictIdSorter.graphTime=0, ConflictIdSorter.topsortTime=0, ConflictIdSorter.conflictIdCount=45, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=2, ConflictResolver.conflictItemCount=84, DefaultDependencyCollector.collectTime=199, DefaultDependencyCollector.transformTime=3}
+[DEBUG] org.codehaus.groovy:groovy-eclipse-compiler:jar:2.9.2-01:
+[DEBUG]    org.codehaus.groovy:groovy-eclipse-batch:jar:2.4.3-01:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-api:jar:2.2:compile
+[DEBUG]       org.codehaus.plexus:plexus-utils:jar:3.0.8:compile
+[DEBUG]    org.codehaus.plexus:plexus-container-default:jar:1.5.4:compile
+[DEBUG]       org.codehaus.plexus:plexus-classworlds:jar:2.2.2:compile
+[DEBUG]       org.apache.xbean:xbean-reflect:jar:3.4:compile
+[DEBUG]          log4j:log4j:jar:1.2.12:compile
+[DEBUG]          commons-logging:commons-logging-api:jar:1.1:compile
+[DEBUG]       com.google.collections:google-collections:jar:1.0:compile
+[DEBUG]       junit:junit:jar:3.8.2:compile
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.6:compile
+[DEBUG]    org.apache.maven.plugins:maven-compiler-plugin:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-artifact:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-toolchain:jar:1.0:compile
+[DEBUG]       org.apache.maven.shared:maven-shared-utils:jar:0.1:compile
+[DEBUG]          com.google.code.findbugs:jsr305:jar:2.0.1:compile
+[DEBUG]       org.apache.maven.shared:maven-shared-incremental:jar:1.0:compile
+[DEBUG]          org.codehaus.plexus:plexus-component-annotations:jar:1.5.5:compile
+[DEBUG]       org.codehaus.plexus:plexus-compiler-manager:jar:2.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-compiler-javac:jar:2.0:runtime
+[DEBUG]    org.apache.maven:maven-core:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6:compile
+[DEBUG]       org.apache.maven.reporting:maven-reporting-api:jar:2.0.6:compile
+[DEBUG]          org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-model:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-error-diagnostics:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-project:jar:2.0.6:compile
+[DEBUG]          org.apache.maven:maven-plugin-registry:jar:2.0.6:compile
+[DEBUG]       commons-cli:commons-cli:jar:1.0:compile
+[DEBUG]       org.apache.maven:maven-plugin-descriptor:jar:2.0.6:compile
+[DEBUG]       org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4:compile
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-monitor:jar:2.0.6:compile
+[DEBUG]       classworlds:classworlds:jar:1.1:compile
+[DEBUG] Created new class realm extension>org.codehaus.groovy:groovy-eclipse-compiler:2.9.2-01
+[DEBUG] Importing foreign packages into class realm extension>org.codehaus.groovy:groovy-eclipse-compiler:2.9.2-01
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm extension>org.codehaus.groovy:groovy-eclipse-compiler:2.9.2-01
+[DEBUG]   Included: org.codehaus.groovy:groovy-eclipse-compiler:jar:2.9.2-01
+[DEBUG]   Included: org.codehaus.groovy:groovy-eclipse-batch:jar:2.4.3-01
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-api:jar:2.2
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.0.8
+[DEBUG]   Included: org.apache.xbean:xbean-reflect:jar:3.4
+[DEBUG]   Included: log4j:log4j:jar:1.2.12
+[DEBUG]   Included: commons-logging:commons-logging-api:jar:1.1
+[DEBUG]   Included: com.google.collections:google-collections:jar:1.0
+[DEBUG]   Included: junit:junit:jar:3.8.2
+[DEBUG]   Included: org.apache.maven.plugins:maven-compiler-plugin:jar:3.0
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-utils:jar:0.1
+[DEBUG]   Included: com.google.code.findbugs:jsr305:jar:2.0.1
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-incremental:jar:1.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.5.5
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-manager:jar:2.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-javac:jar:2.0
+[DEBUG]   Included: org.apache.maven.reporting:maven-reporting-api:jar:2.0.6
+[DEBUG]   Included: org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7
+[DEBUG]   Included: commons-cli:commons-cli:jar:1.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4
+[DEBUG] Extension realms for project org.openhab.binding:org.openhab.binding.avmfritz2:eclipse-plugin:2.4.0: [ClassRealm[extension>org.eclipse.tycho:tycho-maven-plugin:1.2.0, parent: sun.misc.Launcher$AppClassLoader@1b6d3586], ClassRealm[extension>org.codehaus.groovy:groovy-eclipse-compiler:2.9.2-01, parent: sun.misc.Launcher$AppClassLoader@1b6d3586]]
+[DEBUG] Created new class realm project>org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0
+[DEBUG] Populating class realm project>org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0
+[DEBUG] Looking up lifecyle mappings for packaging eclipse-plugin from ClassRealm[project>org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0, parent: ClassRealm[maven.api, parent: null]]
+[DEBUG] Extension realms for project org.openhab.binding:pom:pom:2.4.0: [ClassRealm[extension>org.eclipse.tycho:tycho-maven-plugin:1.2.0, parent: sun.misc.Launcher$AppClassLoader@1b6d3586], ClassRealm[extension>org.codehaus.groovy:groovy-eclipse-compiler:2.9.2-01, parent: sun.misc.Launcher$AppClassLoader@1b6d3586]]
+[DEBUG] Looking up lifecyle mappings for packaging pom from ClassRealm[project>org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0, parent: ClassRealm[maven.api, parent: null]]
+[DEBUG] Extension realms for project org.openhab.addons:pom:pom:2.4.0: [ClassRealm[extension>org.eclipse.tycho:tycho-maven-plugin:1.2.0, parent: sun.misc.Launcher$AppClassLoader@1b6d3586], ClassRealm[extension>org.codehaus.groovy:groovy-eclipse-compiler:2.9.2-01, parent: sun.misc.Launcher$AppClassLoader@1b6d3586]]
+[DEBUG] Looking up lifecyle mappings for packaging pom from ClassRealm[project>org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0, parent: ClassRealm[maven.api, parent: null]]
+[DEBUG] Extension realms for project org.openhab:pom-addons2:pom:2.4.0: [ClassRealm[extension>org.eclipse.tycho:tycho-maven-plugin:1.2.0, parent: sun.misc.Launcher$AppClassLoader@1b6d3586], ClassRealm[extension>org.codehaus.groovy:groovy-eclipse-compiler:2.9.2-01, parent: sun.misc.Launcher$AppClassLoader@1b6d3586]]
+[DEBUG] Looking up lifecyle mappings for packaging pom from ClassRealm[project>org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0, parent: ClassRealm[maven.api, parent: null]]
+[DEBUG] Extension realms for project org.openhab:pom-tycho:pom:2.4.0: [ClassRealm[extension>org.eclipse.tycho:tycho-maven-plugin:1.2.0, parent: sun.misc.Launcher$AppClassLoader@1b6d3586], ClassRealm[extension>org.codehaus.groovy:groovy-eclipse-compiler:2.9.2-01, parent: sun.misc.Launcher$AppClassLoader@1b6d3586]]
+[DEBUG] Looking up lifecyle mappings for packaging pom from ClassRealm[project>org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0, parent: ClassRealm[maven.api, parent: null]]
+[DEBUG] Extension realms for project org.openhab:pom:pom:2.4.0: (none)
+[DEBUG] Looking up lifecyle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[DEBUG] org.eclipse.tycho:tycho-maven-plugin:1.2.0 configured in MavenProject: org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0 @ /home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/pom.xml
+[DEBUG] org.eclipse.tycho:tycho-packaging-plugin:1.2.0 configured in MavenProject: org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0 @ /home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/pom.xml
+[DEBUG] org.eclipse.tycho:tycho-p2-plugin:1.2.0 configured in MavenProject: org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0 @ /home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/pom.xml
+[DEBUG] org.eclipse.tycho:tycho-compiler-plugin:1.2.0 configured in MavenProject: org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0 @ /home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/pom.xml
+[DEBUG] target-platform-configuration for MavenProject: org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0 @ /home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/pom.xml:
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <pomDependencies>consider</pomDependencies>
+  <environments>
+    <environment>
+      <os>linux</os>
+      <ws>gtk</ws>
+      <arch>x86</arch>
+    </environment>
+    <environment>
+      <os>linux</os>
+      <ws>gtk</ws>
+      <arch>x86_64</arch>
+    </environment>
+    <environment>
+      <os>win32</os>
+      <ws>win32</ws>
+      <arch>x86</arch>
+    </environment>
+    <environment>
+      <os>macosx</os>
+      <ws>cocoa</ws>
+      <arch>x86_64</arch>
+    </environment>
+  </environments>
+</configuration>
+Debug options:
+    file:/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/.options not found
+Time to load bundles: 181
+[DEBUG] Clearing proxy settings in OSGi runtime
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=0, ConflictMarker.markTime=1, ConflictMarker.nodeCount=107, ConflictIdSorter.graphTime=0, ConflictIdSorter.topsortTime=0, ConflictIdSorter.conflictIdCount=49, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=1, ConflictResolver.conflictItemCount=106, DefaultDependencyCollector.collectTime=20, DefaultDependencyCollector.transformTime=2}
+[DEBUG] org.eclipse.tycho:tycho-p2-plugin:jar:1.2.0:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-artifact:jar:3.0:compile
+[DEBUG]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2:compile
+[DEBUG]          org.sonatype.sisu:sisu-inject-bean:jar:1.4.2:compile
+[DEBUG]             org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7:compile
+[DEBUG]    org.apache.maven:maven-core:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-settings-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-aether-provider:jar:3.0:runtime
+[DEBUG]       org.sonatype.aether:aether-impl:jar:1.7:compile
+[DEBUG]          org.sonatype.aether:aether-spi:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-api:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-util:jar:1.7:compile
+[DEBUG]       org.codehaus.plexus:plexus-interpolation:jar:1.14:compile
+[DEBUG]       org.codehaus.plexus:plexus-utils:jar:3.0.24:compile
+[DEBUG]       org.codehaus.plexus:plexus-classworlds:jar:2.2.3:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1:compile
+[DEBUG]       org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3:compile
+[DEBUG]          org.sonatype.plexus:plexus-cipher:jar:1.7:compile
+[DEBUG]    org.eclipse.tycho:sisu-equinox-launching:jar:1.2.0:compile
+[DEBUG]       org.eclipse.tycho:tycho-core:jar:1.2.0:compile
+[DEBUG]          org.codehaus.plexus:plexus-archiver:jar:3.4:compile
+[DEBUG]             org.codehaus.plexus:plexus-io:jar:2.7.1:compile
+[DEBUG]             commons-io:commons-io:jar:2.5:compile
+[DEBUG]             org.apache.commons:commons-compress:jar:1.15:compile
+[DEBUG]                org.objenesis:objenesis:jar:2.6:compile
+[DEBUG]             org.iq80.snappy:snappy:jar:0.4:compile
+[DEBUG]             org.tukaani:xz:jar:1.5:runtime
+[DEBUG]          org.eclipse.tycho:org.eclipse.osgi.compatibility.state:jar:1.1.100.v20180131-1413:compile
+[DEBUG]          org.eclipse.tycho:tycho-metadata-model:jar:1.2.0:compile
+[DEBUG]             de.pdark:decentxml:jar:1.3:compile
+[DEBUG]          org.eclipse.tycho:tycho-embedder-api:jar:1.2.0:compile
+[DEBUG]             org.eclipse.tycho:org.eclipse.tycho.embedder.shared:jar:1.2.0:compile
+[DEBUG]          org.eclipse.tycho:org.eclipse.tycho.core.shared:jar:1.2.0:compile
+[DEBUG]          org.apache.maven:maven-compat:jar:3.0:compile
+[DEBUG]             org.apache.maven.wagon:wagon-provider-api:jar:1.0-beta-6:compile
+[DEBUG]       org.eclipse.tycho:sisu-equinox-api:jar:1.2.0:compile
+[DEBUG]       org.apache.commons:commons-exec:jar:1.2:compile
+[DEBUG]    org.eclipse.tycho:tycho-p2-facade:jar:1.2.0:compile
+[DEBUG]       org.eclipse.tycho:sisu-equinox-embedder:jar:1.2.0:compile
+[DEBUG]          org.eclipse.tycho:org.eclipse.osgi:jar:3.13.0.v20180226-1711:compile
+[DEBUG]       org.eclipse.tycho:org.eclipse.tycho.p2.resolver.shared:jar:1.2.0:compile
+[DEBUG]       org.eclipse.tycho:org.eclipse.tycho.p2.tools.shared:jar:1.2.0:compile
+[DEBUG]    org.eclipse.tycho:tycho-artifactcomparator:jar:1.2.0:compile
+[DEBUG]       org.ow2.asm:asm-debug-all:jar:5.0.3:compile
+[DEBUG] Created new class realm plugin>org.eclipse.tycho:tycho-p2-plugin:1.2.0
+[DEBUG] Importing foreign packages into class realm plugin>org.eclipse.tycho:tycho-p2-plugin:1.2.0
+[DEBUG]   Imported:  < project>org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0
+[DEBUG] Populating class realm plugin>org.eclipse.tycho:tycho-p2-plugin:1.2.0
+[DEBUG]   Included: org.eclipse.tycho:tycho-p2-plugin:jar:1.2.0
+[DEBUG]   Included: org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[DEBUG]   Included: org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[DEBUG]   Included: org.sonatype.aether:aether-util:jar:1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.14
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.0.24
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.7
+[DEBUG]   Included: org.eclipse.tycho:sisu-equinox-launching:jar:1.2.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-archiver:jar:3.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-io:jar:2.7.1
+[DEBUG]   Included: commons-io:commons-io:jar:2.5
+[DEBUG]   Included: org.apache.commons:commons-compress:jar:1.15
+[DEBUG]   Included: org.objenesis:objenesis:jar:2.6
+[DEBUG]   Included: org.iq80.snappy:snappy:jar:0.4
+[DEBUG]   Included: org.tukaani:xz:jar:1.5
+[DEBUG]   Included: org.eclipse.tycho:org.eclipse.osgi.compatibility.state:jar:1.1.100.v20180131-1413
+[DEBUG]   Included: org.apache.commons:commons-exec:jar:1.2
+[DEBUG]   Included: org.eclipse.tycho:tycho-artifactcomparator:jar:1.2.0
+[DEBUG]   Included: org.ow2.asm:asm-debug-all:jar:5.0.3
+[INFO] Computing target platform for MavenProject: org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0 @ /home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/pom.xml
+[DEBUG] P2resolver.addMavenArtifact org.apache.felix:org.apache.felix.fileinstall:jar:3.4.0:provided
+[DEBUG] P2Resolver: artifact org.apache.felix:org.apache.felix.fileinstall:3.4.0 at location /home/pafoxp/.m2/repository/org/apache/felix/org.apache.felix.fileinstall/3.4.0/org.apache.felix.fileinstall-3.4.0.jar resolves installable unit org.apache.felix.fileinstall/3.4.0
+[DEBUG] P2resolver.addMavenArtifact org.apache.felix:org.apache.felix.scr.ds-annotations:jar:1.2.10:compile
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.core:org.eclipse.smarthome.core:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.core:org.eclipse.smarthome.core:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/core/org.eclipse.smarthome.core/0.10.0.oh240/org.eclipse.smarthome.core-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.core/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.core:org.eclipse.smarthome.core.persistence:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.core:org.eclipse.smarthome.core.persistence:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/core/org.eclipse.smarthome.core.persistence/0.10.0.oh240/org.eclipse.smarthome.core.persistence-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.core.persistence/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.core:org.eclipse.smarthome.core.thing:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.core:org.eclipse.smarthome.core.thing:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/core/org.eclipse.smarthome.core.thing/0.10.0.oh240/org.eclipse.smarthome.core.thing-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.core.thing/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.core:org.eclipse.smarthome.core.binding.xml:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.core:org.eclipse.smarthome.core.binding.xml:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/core/org.eclipse.smarthome.core.binding.xml/0.10.0.oh240/org.eclipse.smarthome.core.binding.xml-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.core.binding.xml/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.core:org.eclipse.smarthome.core.thing.xml:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.core:org.eclipse.smarthome.core.thing.xml:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/core/org.eclipse.smarthome.core.thing.xml/0.10.0.oh240/org.eclipse.smarthome.core.thing.xml-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.core.thing.xml/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.core:org.eclipse.smarthome.core.semantics:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.core:org.eclipse.smarthome.core.semantics:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/core/org.eclipse.smarthome.core.semantics/0.10.0.oh240/org.eclipse.smarthome.core.semantics-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.core.semantics/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.core:org.eclipse.smarthome.core.scheduler:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.core:org.eclipse.smarthome.core.scheduler:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/core/org.eclipse.smarthome.core.scheduler/0.10.0.oh240/org.eclipse.smarthome.core.scheduler-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.core.scheduler/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.core:org.eclipse.smarthome.core.transform:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.core:org.eclipse.smarthome.core.transform:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/core/org.eclipse.smarthome.core.transform/0.10.0.oh240/org.eclipse.smarthome.core.transform-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.core.transform/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.core:org.eclipse.smarthome.core.id:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.core:org.eclipse.smarthome.core.id:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/core/org.eclipse.smarthome.core.id/0.10.0.oh240/org.eclipse.smarthome.core.id-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.core.id/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.core:org.eclipse.smarthome.core.audio:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.core:org.eclipse.smarthome.core.audio:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/core/org.eclipse.smarthome.core.audio/0.10.0.oh240/org.eclipse.smarthome.core.audio-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.core.audio/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.core:org.eclipse.smarthome.core.voice:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.core:org.eclipse.smarthome.core.voice:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/core/org.eclipse.smarthome.core.voice/0.10.0.oh240/org.eclipse.smarthome.core.voice-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.core.voice/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.config:org.eclipse.smarthome.config.core:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.config:org.eclipse.smarthome.config.core:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/config/org.eclipse.smarthome.config.core/0.10.0.oh240/org.eclipse.smarthome.config.core-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.config.core/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.config:org.eclipse.smarthome.config.discovery:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.config:org.eclipse.smarthome.config.discovery:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/config/org.eclipse.smarthome.config.discovery/0.10.0.oh240/org.eclipse.smarthome.config.discovery-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.config.discovery/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.config:org.eclipse.smarthome.config.discovery.mdns:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.config:org.eclipse.smarthome.config.discovery.mdns:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/config/org.eclipse.smarthome.config.discovery.mdns/0.10.0.oh240/org.eclipse.smarthome.config.discovery.mdns-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.config.discovery.mdns/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.config:org.eclipse.smarthome.config.discovery.upnp:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.config:org.eclipse.smarthome.config.discovery.upnp:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/config/org.eclipse.smarthome.config.discovery.upnp/0.10.0.oh240/org.eclipse.smarthome.config.discovery.upnp-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.config.discovery.upnp/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.config:org.eclipse.smarthome.config.discovery.usbserial:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.config:org.eclipse.smarthome.config.discovery.usbserial:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/config/org.eclipse.smarthome.config.discovery.usbserial/0.10.0.oh240/org.eclipse.smarthome.config.discovery.usbserial-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.config.discovery.usbserial/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.config:org.eclipse.smarthome.config.discovery.usbserial.linuxsysfs:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.config:org.eclipse.smarthome.config.discovery.usbserial.linuxsysfs:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/config/org.eclipse.smarthome.config.discovery.usbserial.linuxsysfs/0.10.0.oh240/org.eclipse.smarthome.config.discovery.usbserial.linuxsysfs-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.config.discovery.usbserial.linuxsysfs/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.config:org.eclipse.smarthome.config.serial:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.config:org.eclipse.smarthome.config.serial:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/config/org.eclipse.smarthome.config.serial/0.10.0.oh240/org.eclipse.smarthome.config.serial-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.config.serial/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.config:org.eclipse.smarthome.config.xml:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.config:org.eclipse.smarthome.config.xml:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/config/org.eclipse.smarthome.config.xml/0.10.0.oh240/org.eclipse.smarthome.config.xml-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.config.xml/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.config:org.eclipse.smarthome.config.dispatch:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.config:org.eclipse.smarthome.config.dispatch:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/config/org.eclipse.smarthome.config.dispatch/0.10.0.oh240/org.eclipse.smarthome.config.dispatch-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.config.dispatch/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.console:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.console:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.console/0.10.0.oh240/org.eclipse.smarthome.io.console-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.console/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.console.rfc147:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.console.rfc147:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.console.rfc147/0.10.0.oh240/org.eclipse.smarthome.io.console.rfc147-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.console.rfc147/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.rest:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.rest:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.rest/0.10.0.oh240/org.eclipse.smarthome.io.rest-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.rest/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.rest.core:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.rest.core:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.rest.core/0.10.0.oh240/org.eclipse.smarthome.io.rest.core-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.rest.core/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.rest.sse:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.rest.sse:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.rest.sse/0.10.0.oh240/org.eclipse.smarthome.io.rest.sse-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.rest.sse/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.monitor:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.monitor:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.monitor/0.10.0.oh240/org.eclipse.smarthome.io.monitor-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.monitor/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.net:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.net:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.net/0.10.0.oh240/org.eclipse.smarthome.io.net-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.net/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.http:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.http:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.http/0.10.0.oh240/org.eclipse.smarthome.io.http-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.http/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.http.auth:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.http.auth:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.http.auth/0.10.0.oh240/org.eclipse.smarthome.io.http.auth-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.http.auth/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.http.auth.basic:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.http.auth.basic:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.http.auth.basic/0.10.0.oh240/org.eclipse.smarthome.io.http.auth.basic-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.http.auth.basic/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.transport.upnp:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.transport.upnp:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.transport.upnp/0.10.0.oh240/org.eclipse.smarthome.io.transport.upnp-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.transport.upnp/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.transport.mdns:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.transport.mdns:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.transport.mdns/0.10.0.oh240/org.eclipse.smarthome.io.transport.mdns-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.transport.mdns/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.transport.mqtt:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.transport.mqtt:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.transport.mqtt/0.10.0.oh240/org.eclipse.smarthome.io.transport.mqtt-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.transport.mqtt/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.transport.serial:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.transport.serial:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.transport.serial/0.10.0.oh240/org.eclipse.smarthome.io.transport.serial-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.transport.serial/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.transport.serial.rxtx:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.transport.serial.rxtx:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.transport.serial.rxtx/0.10.0.oh240/org.eclipse.smarthome.io.transport.serial.rxtx-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.transport.serial.rxtx/0.10.0.oh240
+[DEBUG] P2resolver.addMavenArtifact com.neuronrobotics:nrjavaserial:jar:3.14.0:compile
+[DEBUG] P2Resolver: artifact com.neuronrobotics:nrjavaserial:3.14.0 at location /home/pafoxp/.m2/repository/com/neuronrobotics/nrjavaserial/3.14.0/nrjavaserial-3.14.0.jar resolves installable unit com.neuronrobotics.nrjavaserial/3.14.0
+[DEBUG] P2resolver.addMavenArtifact commons-net:commons-net:jar:3.3:compile
+[DEBUG] P2Resolver: artifact commons-net:commons-net:3.3 at location /home/pafoxp/.m2/repository/commons-net/commons-net/3.3/commons-net-3.3.jar resolves installable unit org.apache.commons.net/3.3.0
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.io:org.eclipse.smarthome.io.transport.serial.rxtx.rfc2217:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.io:org.eclipse.smarthome.io.transport.serial.rxtx.rfc2217:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.transport.serial.rxtx.rfc2217/0.10.0.oh240/org.eclipse.smarthome.io.transport.serial.rxtx.rfc2217-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.io.transport.serial.rxtx.rfc2217/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.core:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.core:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/automation/org.eclipse.smarthome.automation.core/0.10.0.oh240/org.eclipse.smarthome.automation.core-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.automation.core/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.api:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.api:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/automation/org.eclipse.smarthome.automation.api/0.10.0.oh240/org.eclipse.smarthome.automation.api-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.automation.api/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.commands:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.commands:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/automation/org.eclipse.smarthome.automation.commands/0.10.0.oh240/org.eclipse.smarthome.automation.commands-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.automation.commands/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.providers:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.providers:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/automation/org.eclipse.smarthome.automation.providers/0.10.0.oh240/org.eclipse.smarthome.automation.providers-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.automation.providers/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.parser.gson:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.parser.gson:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/automation/org.eclipse.smarthome.automation.parser.gson/0.10.0.oh240/org.eclipse.smarthome.automation.parser.gson-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.automation.parser.gson/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.rest:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.rest:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/automation/org.eclipse.smarthome.automation.rest/0.10.0.oh240/org.eclipse.smarthome.automation.rest-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.automation.rest/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.module.core:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.module.core:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/automation/org.eclipse.smarthome.automation.module.core/0.10.0.oh240/org.eclipse.smarthome.automation.module.core-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.automation.module.core/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.module.script:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.module.script:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/automation/org.eclipse.smarthome.automation.module.script/0.10.0.oh240/org.eclipse.smarthome.automation.module.script-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.automation.module.script/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.module.script.defaultscope:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.module.script.defaultscope:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/automation/org.eclipse.smarthome.automation.module.script.defaultscope/0.10.0.oh240/org.eclipse.smarthome.automation.module.script.defaultscope-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.automation.module.script.defaultscope/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.module.timer:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.module.timer:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/automation/org.eclipse.smarthome.automation.module.timer/0.10.0.oh240/org.eclipse.smarthome.automation.module.timer-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.automation.module.timer/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.model:org.eclipse.smarthome.model.core:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.model:org.eclipse.smarthome.model.core:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/model/org.eclipse.smarthome.model.core/0.10.0.oh240/org.eclipse.smarthome.model.core-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.model.core/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.model:org.eclipse.smarthome.model.item:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.model:org.eclipse.smarthome.model.item:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/model/org.eclipse.smarthome.model.item/0.10.0.oh240/org.eclipse.smarthome.model.item-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.model.item/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.model:org.eclipse.smarthome.model.script:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.model:org.eclipse.smarthome.model.script:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/model/org.eclipse.smarthome.model.script/0.10.0.oh240/org.eclipse.smarthome.model.script-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.model.script/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.model:org.eclipse.smarthome.model.persistence:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.model:org.eclipse.smarthome.model.persistence:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/model/org.eclipse.smarthome.model.persistence/0.10.0.oh240/org.eclipse.smarthome.model.persistence-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.model.persistence/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.storage:org.eclipse.smarthome.storage.json:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.storage:org.eclipse.smarthome.storage.json:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/storage/org.eclipse.smarthome.storage.json/0.10.0.oh240/org.eclipse.smarthome.storage.json-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.storage.json/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.extension.ui:org.eclipse.smarthome.ui.paper:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.extension.ui:org.eclipse.smarthome.ui.paper:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/extension/ui/org.eclipse.smarthome.ui.paper/0.10.0.oh240/org.eclipse.smarthome.ui.paper-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.ui.paper/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.extensionservice:org.eclipse.smarthome.extensionservice.marketplace:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.extensionservice:org.eclipse.smarthome.extensionservice.marketplace:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/extensionservice/org.eclipse.smarthome.extensionservice.marketplace/0.10.0.oh240/org.eclipse.smarthome.extensionservice.marketplace-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.extensionservice.marketplace/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.extensionservice:org.eclipse.smarthome.extensionservice.marketplace.automation:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.extensionservice:org.eclipse.smarthome.extensionservice.marketplace.automation:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/extensionservice/org.eclipse.smarthome.extensionservice.marketplace.automation/0.10.0.oh240/org.eclipse.smarthome.extensionservice.marketplace.automation-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.extensionservice.marketplace.automation/0.10.0.oh240
+[DEBUG] P2TargetPlatformResolver: Using existing metadata of org.eclipse.smarthome.test:org.eclipse.smarthome.test:jar:0.10.0.oh240:compile
+[DEBUG] P2Resolver: artifact org.eclipse.smarthome.test:org.eclipse.smarthome.test:0.10.0.oh240 at location /home/pafoxp/.m2/repository/org/eclipse/smarthome/test/org.eclipse.smarthome.test/0.10.0.oh240/org.eclipse.smarthome.test-0.10.0.oh240.jar resolves installable unit org.eclipse.smarthome.test/0.10.0.oh240
+[DEBUG] Added p2 repository p2-openhab-deps-repo (https://dl.bintray.com/openhab/p2/openhab-deps-repo/1.0.38)
+[DEBUG] Added p2 repository eclipse-oxygen (http://download.eclipse.org/releases/oxygen/201709271000)
+[DEBUG] Using execution environment 'JavaSE-1.8' configured in Bundle-RequiredExecutionEnvironment (first entry)
+[DEBUG] Registered artifact repository org.eclipse.tycho.repository.registry.facade.RepositoryBlackboardKey(uri=file:/resolution-context-artifacts@%252Fhome%252Fpafoxp%252Fcode-openhab%252Fgit-addons_R240%252Faddons%252Fbinding%252Forg.openhab.binding.avmfritz2)
+[INFO] Adding repository https://dl.bintray.com/openhab/p2/openhab-deps-repo/1.0.38
+[INFO] Adding repository http://download.eclipse.org/releases/oxygen/201709271000
+[DEBUG] Added 1397 locally built units to the target platform
+[INFO] Resolving dependencies of MavenProject: org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0 @ /home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/pom.xml
+[WARNING] The following locally built units have been used to resolve project dependencies:
+[WARNING]   org.eclipse.smarthome.io.console/0.11.0.201901262202
+[WARNING]   org.eclipse.smarthome.config.discovery/0.11.0.201901262202
+[WARNING]   org.eclipse.smarthome.config.discovery.upnp/0.11.0.201901262202
+[WARNING]   org.eclipse.smarthome.io.net/0.11.0.201901262202
+[WARNING]   org.eclipse.smarthome.config.core/0.10.0.oh240
+[WARNING]   org.eclipse.smarthome.core/0.10.0.oh240
+[WARNING]   org.eclipse.smarthome.core.thing/0.11.0.201901262202
+[WARNING]   org.openhab.binding.avmfritz2/2.4.0
+[INFO] Resolving class path of MavenProject: org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0 @ /home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/pom.xml
+[DEBUG] Resolving plugin prefix help from [org.apache.maven.plugins, org.codehaus.mojo]
+[WARNING] The POM for org.openhab.tools.sat:sat-plugin:jar:{sat.version} is missing, no dependency information available
+[WARNING] Failed to retrieve plugin descriptor for org.openhab.tools.sat:sat-plugin:{sat.version}: Plugin org.openhab.tools.sat:sat-plugin:{sat.version} or one of its dependencies could not be resolved: Cannot access jcenter (https://jcenter.bintray.com/) in offline mode and the artifact org.openhab.tools.sat:sat-plugin:jar:{sat.version} has not been downloaded from it before.
+org.apache.maven.plugin.PluginResolutionException: Plugin org.openhab.tools.sat:sat-plugin:{sat.version} or one of its dependencies could not be resolved: Cannot access jcenter (https://jcenter.bintray.com/) in offline mode and the artifact org.openhab.tools.sat:sat-plugin:jar:{sat.version} has not been downloaded from it before.
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.loadPlugin(DefaultBuildPluginManager.java:83)
+	at org.apache.maven.plugin.prefix.internal.DefaultPluginPrefixResolver.resolveFromProject(DefaultPluginPrefixResolver.java:138)
+	at org.apache.maven.plugin.prefix.internal.DefaultPluginPrefixResolver.resolveFromProject(DefaultPluginPrefixResolver.java:125)
+	at org.apache.maven.plugin.prefix.internal.DefaultPluginPrefixResolver.resolve(DefaultPluginPrefixResolver.java:85)
+	at org.apache.maven.lifecycle.internal.MojoDescriptorCreator.findPluginForPrefix(MojoDescriptorCreator.java:265)
+	at org.apache.maven.lifecycle.internal.MojoDescriptorCreator.getMojoDescriptor(MojoDescriptorCreator.java:219)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments(DefaultLifecycleTaskSegmentCalculator.java:103)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments(DefaultLifecycleTaskSegmentCalculator.java:83)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:89)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:307)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:193)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:106)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:863)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Cannot access jcenter (https://jcenter.bintray.com/) in offline mode and the artifact org.openhab.tools.sat:sat-plugin:jar:{sat.version} has not been downloaded from it before.
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 24 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Cannot access jcenter (https://jcenter.bintray.com/) in offline mode and the artifact org.openhab.tools.sat:sat-plugin:jar:{sat.version} has not been downloaded from it before.
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:391)
+	... 28 more
+Caused by: org.eclipse.aether.transfer.RepositoryOfflineException: Cannot access jcenter (https://jcenter.bintray.com/) in offline mode
+	at org.eclipse.aether.internal.impl.DefaultOfflineController.checkOffline(DefaultOfflineController.java:72)
+	at org.eclipse.aether.internal.impl.Utils.checkOffline(Utils.java:115)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:387)
+	... 28 more
+[DEBUG] Could not find metadata org.apache.maven.plugins/maven-metadata.xml in local (/home/pafoxp/.m2/repository)
+[DEBUG] Could not find metadata org.codehaus.mojo/maven-metadata.xml in local (/home/pafoxp/.m2/repository)
+[DEBUG] Resolved plugin prefix help to org.apache.maven.plugins:maven-help-plugin from repository jcenter
+[DEBUG] Resolving plugin version for org.apache.maven.plugins:maven-help-plugin
+[DEBUG] Could not find metadata org.apache.maven.plugins:maven-help-plugin/maven-metadata.xml in local (/home/pafoxp/.m2/repository)
+[DEBUG] Resolved plugin version for org.apache.maven.plugins:maven-help-plugin to 3.2.0 from repository jcenter (https://jcenter.bintray.com/, default, releases)
+[DEBUG] === REACTOR BUILD PLAN ================================================
+[DEBUG] Project: org.openhab.binding:org.openhab.binding.avmfritz2:eclipse-plugin:2.4.0
+[DEBUG] Tasks:   [help:effective-pom]
+[DEBUG] Style:   Aggregating
+[DEBUG] =======================================================================
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building AVM FRITZ2! Binding 2.4.0
+[INFO] ------------------------------------------------------------------------
+[DEBUG] Resolving plugin prefix help from [org.apache.maven.plugins, org.codehaus.mojo]
+[WARNING] The POM for org.openhab.tools.sat:sat-plugin:jar:{sat.version} is missing, no dependency information available
+[WARNING] Failed to retrieve plugin descriptor for org.openhab.tools.sat:sat-plugin:{sat.version}: Plugin org.openhab.tools.sat:sat-plugin:{sat.version} or one of its dependencies could not be resolved: Cannot access jcenter (https://jcenter.bintray.com/) in offline mode and the artifact org.openhab.tools.sat:sat-plugin:jar:{sat.version} has not been downloaded from it before.
+org.apache.maven.plugin.PluginResolutionException: Plugin org.openhab.tools.sat:sat-plugin:{sat.version} or one of its dependencies could not be resolved: Cannot access jcenter (https://jcenter.bintray.com/) in offline mode and the artifact org.openhab.tools.sat:sat-plugin:jar:{sat.version} has not been downloaded from it before.
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:128)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getPluginDescriptor(DefaultMavenPluginManager.java:179)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.loadPlugin(DefaultBuildPluginManager.java:83)
+	at org.apache.maven.plugin.prefix.internal.DefaultPluginPrefixResolver.resolveFromProject(DefaultPluginPrefixResolver.java:138)
+	at org.apache.maven.plugin.prefix.internal.DefaultPluginPrefixResolver.resolveFromProject(DefaultPluginPrefixResolver.java:125)
+	at org.apache.maven.plugin.prefix.internal.DefaultPluginPrefixResolver.resolve(DefaultPluginPrefixResolver.java:85)
+	at org.apache.maven.lifecycle.internal.MojoDescriptorCreator.findPluginForPrefix(MojoDescriptorCreator.java:265)
+	at org.apache.maven.lifecycle.internal.MojoDescriptorCreator.getMojoDescriptor(MojoDescriptorCreator.java:219)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.calculateMojoExecutions(DefaultLifecycleExecutionPlanCalculator.java:206)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.calculateExecutionPlan(DefaultLifecycleExecutionPlanCalculator.java:127)
+	at org.apache.maven.lifecycle.internal.DefaultLifecycleExecutionPlanCalculator.calculateExecutionPlan(DefaultLifecycleExecutionPlanCalculator.java:145)
+	at org.apache.maven.lifecycle.internal.builder.BuilderCommon.resolveBuildPlan(BuilderCommon.java:96)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:109)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:307)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:193)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:106)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:863)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.eclipse.aether.resolution.ArtifactResolutionException: Cannot access jcenter (https://jcenter.bintray.com/) in offline mode and the artifact org.openhab.tools.sat:sat-plugin:jar:{sat.version} has not been downloaded from it before.
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223)
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294)
+	at org.apache.maven.plugin.internal.DefaultPluginDependenciesResolver.resolve(DefaultPluginDependenciesResolver.java:124)
+	... 29 more
+Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Cannot access jcenter (https://jcenter.bintray.com/) in offline mode and the artifact org.openhab.tools.sat:sat-plugin:jar:{sat.version} has not been downloaded from it before.
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:391)
+	... 33 more
+Caused by: org.eclipse.aether.transfer.RepositoryOfflineException: Cannot access jcenter (https://jcenter.bintray.com/) in offline mode
+	at org.eclipse.aether.internal.impl.DefaultOfflineController.checkOffline(DefaultOfflineController.java:72)
+	at org.eclipse.aether.internal.impl.Utils.checkOffline(Utils.java:115)
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:387)
+	... 33 more
+[DEBUG] Could not find metadata org.apache.maven.plugins/maven-metadata.xml in local (/home/pafoxp/.m2/repository)
+[DEBUG] Could not find metadata org.codehaus.mojo/maven-metadata.xml in local (/home/pafoxp/.m2/repository)
+[DEBUG] Resolved plugin prefix help to org.apache.maven.plugins:maven-help-plugin from repository jcenter
+[DEBUG] Resolving plugin version for org.apache.maven.plugins:maven-help-plugin
+[DEBUG] Could not find metadata org.apache.maven.plugins:maven-help-plugin/maven-metadata.xml in local (/home/pafoxp/.m2/repository)
+[DEBUG] Resolved plugin version for org.apache.maven.plugins:maven-help-plugin to 3.2.0 from repository jcenter (https://jcenter.bintray.com/, default, releases)
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] === PROJECT BUILD PLAN ================================================
+[DEBUG] Project:       org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): []
+[DEBUG] Repositories (dependencies): [jcenter (https://jcenter.bintray.com/, default, releases), openhab-artifactory-release (https://openhab.jfrog.io/openhab/libs-release, default, releases), openhab-artifactory-snapshot (https://openhab.jfrog.io/openhab/libs-snapshot, default, snapshots), p2-openhab-deps-repo (https://dl.bintray.com/openhab/p2/openhab-deps-repo/1.0.38, p2, disabled), eclipse-oxygen (http://download.eclipse.org/releases/oxygen/201709271000, p2, disabled), bintray (https://dl.bintray.com/openhab/mvn/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] Repositories (plugins)     : [jcenter (https://jcenter.bintray.com/, default, releases), artifactory (https://openhab.jfrog.io/openhab/libs-release, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-help-plugin:3.2.0:effective-pom (default-cli)
+[DEBUG] Style:         Aggregating
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <artifact>${artifact}</artifact>
+  <localRepository default-value="${localRepository}"/>
+  <mojoExecution default-value="${mojo}"/>
+  <output>${output}</output>
+  <project default-value="${project}"/>
+  <projects default-value="${reactorProjects}"/>
+  <remoteRepositories default-value="${project.remoteArtifactRepositories}"/>
+  <session default-value="${session}"/>
+  <verbose default-value="false">${verbose}</verbose>
+</configuration>
+[DEBUG] =======================================================================
+[INFO] 
+[INFO] --- maven-help-plugin:3.2.0:effective-pom (default-cli) @ org.openhab.binding.avmfritz2 ---
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=0, ConflictMarker.markTime=0, ConflictMarker.nodeCount=120, ConflictIdSorter.graphTime=1, ConflictIdSorter.topsortTime=0, ConflictIdSorter.conflictIdCount=50, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=2, ConflictResolver.conflictItemCount=113, DefaultDependencyCollector.collectTime=79, DefaultDependencyCollector.transformTime=3}
+[DEBUG] org.apache.maven.plugins:maven-help-plugin:jar:3.2.0:
+[DEBUG]    org.apache.maven:maven-artifact:jar:3.0:compile
+[DEBUG]    org.apache.maven:maven-core:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-settings-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-aether-provider:jar:3.0:runtime
+[DEBUG]       org.sonatype.aether:aether-impl:jar:1.7:compile
+[DEBUG]          org.sonatype.aether:aether-spi:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-api:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-util:jar:1.7:compile
+[DEBUG]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2:compile
+[DEBUG]          org.sonatype.sisu:sisu-inject-bean:jar:1.4.2:compile
+[DEBUG]             org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7:compile
+[DEBUG]       org.codehaus.plexus:plexus-interpolation:jar:1.14:compile
+[DEBUG]       org.codehaus.plexus:plexus-classworlds:jar:2.2.3:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1:compile
+[DEBUG]       org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3:compile
+[DEBUG]          org.sonatype.plexus:plexus-cipher:jar:1.4:compile
+[DEBUG]    org.apache.maven:maven-model:jar:3.6.1:compile
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:3.0:compile
+[DEBUG]    org.apache.maven:maven-settings:jar:3.0:compile
+[DEBUG]    org.apache.maven.plugin-tools:maven-plugin-tools-generators:jar:3.5.2:compile
+[DEBUG]       org.apache.maven.plugin-tools:maven-plugin-tools-api:jar:3.5.2:compile
+[DEBUG]       org.codehaus.plexus:plexus-velocity:jar:1.1.8:compile
+[DEBUG]          org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1:compile
+[DEBUG]             junit:junit:jar:3.8.1:compile
+[DEBUG]             classworlds:classworlds:jar:1.1-alpha-2:compile
+[DEBUG]          commons-collections:commons-collections:jar:3.1:compile
+[DEBUG]       org.apache.velocity:velocity:jar:1.7:compile
+[DEBUG]          commons-lang:commons-lang:jar:2.4:compile
+[DEBUG]       net.sf.jtidy:jtidy:jar:r938:compile
+[DEBUG]    org.apache.maven.shared:maven-shared-utils:jar:3.2.1:compile
+[DEBUG]       commons-io:commons-io:jar:2.5:compile
+[DEBUG]    org.apache.maven.shared:maven-artifact-transfer:jar:0.10.0:compile
+[DEBUG]       org.apache.maven.shared:maven-common-artifact-filters:jar:3.0.1:compile
+[DEBUG]       commons-codec:commons-codec:jar:1.11:compile
+[DEBUG]       org.slf4j:slf4j-api:jar:1.7.5:compile
+[DEBUG]    org.apache.maven.reporting:maven-reporting-api:jar:3.0:compile
+[DEBUG]       org.apache.maven.doxia:doxia-sink-api:jar:1.0:compile
+[DEBUG]    org.apache.maven.reporting:maven-reporting-exec:jar:1.4:compile
+[DEBUG]       org.eclipse.aether:aether-util:jar:0.9.0.M2:compile
+[DEBUG]    org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-6:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:3.2.0:compile
+[DEBUG]    org.jdom:jdom2:jar:2.0.6:compile
+[DEBUG]    com.thoughtworks.xstream:xstream:jar:1.4.11.1:compile
+[DEBUG]       xmlpull:xmlpull:jar:1.1.3.1:compile
+[DEBUG]       xpp3:xpp3_min:jar:1.1.4c:compile
+[DEBUG]    org.apache.commons:commons-lang3:jar:3.7:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-help-plugin:3.2.0
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-help-plugin:3.2.0
+[DEBUG]   Imported:  < project>org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-help-plugin:3.2.0
+[DEBUG]   Included: org.apache.maven.plugins:maven-help-plugin:jar:3.2.0
+[DEBUG]   Included: org.sonatype.aether:aether-util:jar:1.7
+[DEBUG]   Included: org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[DEBUG]   Included: org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.14
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.4
+[DEBUG]   Included: org.apache.maven.plugin-tools:maven-plugin-tools-generators:jar:3.5.2
+[DEBUG]   Included: org.apache.maven.plugin-tools:maven-plugin-tools-api:jar:3.5.2
+[DEBUG]   Included: org.codehaus.plexus:plexus-velocity:jar:1.1.8
+[DEBUG]   Included: junit:junit:jar:3.8.1
+[DEBUG]   Included: commons-collections:commons-collections:jar:3.1
+[DEBUG]   Included: org.apache.velocity:velocity:jar:1.7
+[DEBUG]   Included: commons-lang:commons-lang:jar:2.4
+[DEBUG]   Included: net.sf.jtidy:jtidy:jar:r938
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-utils:jar:3.2.1
+[DEBUG]   Included: commons-io:commons-io:jar:2.5
+[DEBUG]   Included: org.apache.maven.shared:maven-artifact-transfer:jar:0.10.0
+[DEBUG]   Included: org.apache.maven.shared:maven-common-artifact-filters:jar:3.0.1
+[DEBUG]   Included: commons-codec:commons-codec:jar:1.11
+[DEBUG]   Included: org.apache.maven.reporting:maven-reporting-api:jar:3.0
+[DEBUG]   Included: org.apache.maven.doxia:doxia-sink-api:jar:1.0
+[DEBUG]   Included: org.apache.maven.reporting:maven-reporting-exec:jar:1.4
+[DEBUG]   Included: org.eclipse.aether:aether-util:jar:0.9.0.M2
+[DEBUG]   Included: org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-6
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.2.0
+[DEBUG]   Included: org.jdom:jdom2:jar:2.0.6
+[DEBUG]   Included: com.thoughtworks.xstream:xstream:jar:1.4.11.1
+[DEBUG]   Included: xmlpull:xmlpull:jar:1.1.3.1
+[DEBUG]   Included: xpp3:xpp3_min:jar:1.1.4c
+[DEBUG]   Included: org.apache.commons:commons-lang3:jar:3.7
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-help-plugin:3.2.0:effective-pom from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-help-plugin:3.2.0, parent: sun.misc.Launcher$AppClassLoader@1b6d3586]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-help-plugin:3.2.0:effective-pom' with basic configurator -->
+[DEBUG]   (f) localRepository =       id: local
+      url: file:///home/pafoxp/.m2/repository/
+   layout: default
+snapshots: [enabled => true, update => always]
+ releases: [enabled => true, update => always]
+
+[DEBUG]   (f) mojoExecution = org.apache.maven.plugins:maven-help-plugin:3.2.0:effective-pom {execution: default-cli}
+[DEBUG]   (f) project = MavenProject: org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0 @ /home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/pom.xml
+[DEBUG]   (f) projects = [MavenProject: org.openhab.binding:org.openhab.binding.avmfritz2:2.4.0 @ /home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/pom.xml]
+[DEBUG]   (f) remoteRepositories = [      id: jcenter
+      url: https://jcenter.bintray.com/
+   layout: default
+snapshots: [enabled => false, update => daily]
+ releases: [enabled => true, update => never]
+,       id: openhab-artifactory-release
+      url: https://openhab.jfrog.io/openhab/libs-release
+   layout: default
+snapshots: [enabled => false, update => daily]
+ releases: [enabled => true, update => never]
+,       id: openhab-artifactory-snapshot
+      url: https://openhab.jfrog.io/openhab/libs-snapshot
+   layout: default
+snapshots: [enabled => true, update => always]
+ releases: [enabled => false, update => daily]
+,       id: p2-openhab-deps-repo
+      url: https://dl.bintray.com/openhab/p2/openhab-deps-repo/1.0.38
+   layout: org.eclipse.tycho.core.p2.P2ArtifactRepositoryLayout@39d77de9
+snapshots: [enabled => false, update => never]
+ releases: [enabled => false, update => never]
+,       id: eclipse-oxygen
+      url: http://download.eclipse.org/releases/oxygen/201709271000
+   layout: org.eclipse.tycho.core.p2.P2ArtifactRepositoryLayout@39d77de9
+snapshots: [enabled => false, update => never]
+ releases: [enabled => false, update => never]
+,       id: bintray
+      url: https://dl.bintray.com/openhab/mvn/
+   layout: default
+snapshots: [enabled => false, update => daily]
+ releases: [enabled => true, update => never]
+,       id: central
+      url: https://repo.maven.apache.org/maven2
+   layout: default
+snapshots: [enabled => false, update => daily]
+ releases: [enabled => true, update => daily]
+]
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@696fad31
+[DEBUG]   (f) verbose = false
+[DEBUG] -- end configuration --
+[INFO] 
+Effective POMs, after inheritance, interpolation, and profiles are applied:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== -->
+<!--                                                                        -->
+<!-- Generated by Maven Help Plugin on 2024-03-05T22:57:45+01:00            -->
+<!-- See: http://maven.apache.org/plugins/maven-help-plugin/                -->
+<!--                                                                        -->
+<!-- ====================================================================== -->
+<!-- ====================================================================== -->
+<!--                                                                        -->
+<!-- Effective POM for project                                              -->
+<!-- 'org.openhab.binding:org.openhab.binding.avmfritz2:eclipse-plugin:2.4.0' -->
+<!--                                                                        -->
+<!-- ====================================================================== -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.openhab.binding</groupId>
+    <artifactId>pom</artifactId>
+    <version>2.4.0</version>
+  </parent>
+  <groupId>org.openhab.binding</groupId>
+  <artifactId>org.openhab.binding.avmfritz2</artifactId>
+  <version>2.4.0</version>
+  <packaging>eclipse-plugin</packaging>
+  <name>AVM FRITZ2! Binding</name>
+  <description>This is the open Home Automation Bus (openHAB)</description>
+  <organization>
+    <name>openHAB.org</name>
+    <url>http://www.openhab.org</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>Eclipse Public License</name>
+      <url>http://www.eclipse.org/legal/epl-v10.html</url>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:git:https://github.com/openhab/openhab2-addons.git/pom/pom/org.openhab.binding.avmfritz2</connection>
+    <developerConnection>scm:git:https://github.com/openhab/openhab2-addons.git/pom/pom/org.openhab.binding.avmfritz2</developerConnection>
+    <tag>2.4.0</tag>
+    <url>https://github.com/openhab/openhab2-addons/pom/pom/org.openhab.binding.avmfritz2</url>
+  </scm>
+  <issueManagement>
+    <system>Github</system>
+    <url>https://github.com/openhab/openhab2-addons/issues</url>
+  </issueManagement>
+  <distributionManagement>
+    <repository>
+      <id>bintray</id>
+      <url>https://api.bintray.com/maven/openhab/mvn/openhab2-addons/;publish=1</url>
+    </repository>
+    <snapshotRepository>
+      <id>jfrog</id>
+      <url>https://openhab.jfrog.io/openhab/libs-snapshot-local</url>
+    </snapshotRepository>
+  </distributionManagement>
+  <properties>
+    <build.helper.maven.plugin.version>1.9.1</build.helper.maven.plugin.version>
+    <ds-annotations.version>1.2.10</ds-annotations.version>
+    <esh.version>0.10.0.oh240</esh.version>
+    <groovy.eclipse.batch.version>2.4.3-01</groovy.eclipse.batch.version>
+    <groovy.eclipse.compiler.version>2.9.2-01</groovy.eclipse.compiler.version>
+    <jackson.version>1.9.13</jackson.version>
+    <jdt-annotations.version>2.1.0</jdt-annotations.version>
+    <jetty.version>9.4.11.v20180605</jetty.version>
+    <jna.version>4.5.2</jna.version>
+    <karaf.version>4.2.1</karaf.version>
+    <license.maven.plugin.version>2.10</license.maven.plugin.version>
+    <maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.version>3.6.1</maven.compiler.version>
+    <nrjavaserial.version>3.15.0.OH2</nrjavaserial.version>
+    <ohc.version>2.4.0</ohc.version>
+    <ohdr.version>1.0.38</ohdr.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <repo.version>2.4.x</repo.version>
+    <sat.version>0.5.0</sat.version>
+    <scm.gitBaseUrl>https://github.com/openhab</scm.gitBaseUrl>
+    <tycho-groupid>org.eclipse.tycho</tycho-groupid>
+    <tycho-version>1.2.0</tycho-version>
+    <tycho.env.osgi.arch>x86_64</tycho.env.osgi.arch>
+    <tycho.env.osgi.os>linux</tycho.env.osgi.os>
+    <tycho.env.osgi.ws>gtk</tycho.env.osgi.ws>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.fileinstall</artifactId>
+      <version>3.4.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.scr.ds-annotations</artifactId>
+      <version>1.2.10</version>
+      <scope>compile</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core.persistence</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core.thing</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core.binding.xml</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core.thing.xml</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core.semantics</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core.scheduler</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core.transform</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core.id</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core.audio</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core.voice</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.config</groupId>
+      <artifactId>org.eclipse.smarthome.config.core</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.config</groupId>
+      <artifactId>org.eclipse.smarthome.config.discovery</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.config</groupId>
+      <artifactId>org.eclipse.smarthome.config.discovery.mdns</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.config</groupId>
+      <artifactId>org.eclipse.smarthome.config.discovery.upnp</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.config</groupId>
+      <artifactId>org.eclipse.smarthome.config.discovery.usbserial</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.config</groupId>
+      <artifactId>org.eclipse.smarthome.config.discovery.usbserial.linuxsysfs</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.config</groupId>
+      <artifactId>org.eclipse.smarthome.config.serial</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.config</groupId>
+      <artifactId>org.eclipse.smarthome.config.xml</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.config</groupId>
+      <artifactId>org.eclipse.smarthome.config.dispatch</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.console</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.console.rfc147</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.rest</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.rest.core</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.rest.sse</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.monitor</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.net</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.http</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.http.auth</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.http.auth.basic</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.transport.upnp</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.transport.mdns</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.transport.mqtt</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.transport.serial</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.transport.serial.rxtx</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.transport.serial.rxtx.rfc2217</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.automation</groupId>
+      <artifactId>org.eclipse.smarthome.automation.core</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.automation</groupId>
+      <artifactId>org.eclipse.smarthome.automation.api</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.automation</groupId>
+      <artifactId>org.eclipse.smarthome.automation.commands</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.automation</groupId>
+      <artifactId>org.eclipse.smarthome.automation.providers</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.automation</groupId>
+      <artifactId>org.eclipse.smarthome.automation.parser.gson</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.automation</groupId>
+      <artifactId>org.eclipse.smarthome.automation.rest</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.automation</groupId>
+      <artifactId>org.eclipse.smarthome.automation.module.core</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.automation</groupId>
+      <artifactId>org.eclipse.smarthome.automation.module.script</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.automation</groupId>
+      <artifactId>org.eclipse.smarthome.automation.module.script.defaultscope</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.automation</groupId>
+      <artifactId>org.eclipse.smarthome.automation.module.timer</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.model</groupId>
+      <artifactId>org.eclipse.smarthome.model.core</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.model</groupId>
+      <artifactId>org.eclipse.smarthome.model.item</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.model</groupId>
+      <artifactId>org.eclipse.smarthome.model.script</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.model</groupId>
+      <artifactId>org.eclipse.smarthome.model.persistence</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.storage</groupId>
+      <artifactId>org.eclipse.smarthome.storage.json</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.extension.ui</groupId>
+      <artifactId>org.eclipse.smarthome.ui.paper</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.extensionservice</groupId>
+      <artifactId>org.eclipse.smarthome.extensionservice.marketplace</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.extensionservice</groupId>
+      <artifactId>org.eclipse.smarthome.extensionservice.marketplace.automation</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.test</groupId>
+      <artifactId>org.eclipse.smarthome.test</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.osgi</artifactId>
+      <version>3.13.0.v20180409-1500</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.eclipse.osgi/3.13.0.v20180409-1500/org.eclipse.osgi-3.13.0.v20180409-1500.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>com.google.gson</artifactId>
+      <version>2.8.2.v20180104-1110</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/com.google.gson/2.8.2.v20180104-1110/com.google.gson-2.8.2.v20180104-1110.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>javax.measure.unit-api</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/javax.measure.unit-api/1.0.0/javax.measure.unit-api-1.0.0.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>javax.servlet</artifactId>
+      <version>3.1.0.v201410161800</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/javax.servlet/3.1.0.v201410161800/javax.servlet-3.1.0.v201410161800.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>osgi.enterprise</artifactId>
+      <version>4.2.0.v201108120515</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/osgi.enterprise/4.2.0.v201108120515/osgi.enterprise-4.2.0.v201108120515.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.jetty.client</artifactId>
+      <version>9.4.11.v20180605</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.eclipse.jetty.client/9.4.11.v20180605/org.eclipse.jetty.client-9.4.11.v20180605.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.jetty.http</artifactId>
+      <version>9.4.11.v20180605</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.eclipse.jetty.http/9.4.11.v20180605/org.eclipse.jetty.http-9.4.11.v20180605.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.jetty.io</artifactId>
+      <version>9.4.11.v20180605</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.eclipse.jetty.io/9.4.11.v20180605/org.eclipse.jetty.io-9.4.11.v20180605.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.jetty.util</artifactId>
+      <version>9.4.11.v20180605</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.eclipse.jetty.util/9.4.11.v20180605/org.eclipse.jetty.util-9.4.11.v20180605.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.jetty.websocket.api</artifactId>
+      <version>9.4.11.v20180605</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.eclipse.jetty.websocket.api/9.4.11.v20180605/org.eclipse.jetty.websocket.api-9.4.11.v20180605.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.jetty.websocket.client</artifactId>
+      <version>9.4.11.v20180605</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.eclipse.jetty.websocket.client/9.4.11.v20180605/org.eclipse.jetty.websocket.client-9.4.11.v20180605.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.jetty.websocket.common</artifactId>
+      <version>9.4.11.v20180605</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.eclipse.jetty.websocket.common/9.4.11.v20180605/org.eclipse.jetty.websocket.common-9.4.11.v20180605.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.jetty.xml</artifactId>
+      <version>9.4.11.v20180605</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.eclipse.jetty.xml/9.4.11.v20180605/org.eclipse.jetty.xml-9.4.11.v20180605.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.smarthome.config.core</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/org/eclipse/smarthome/config/org.eclipse.smarthome.config.core/0.10.0.oh240/org.eclipse.smarthome.config.core-0.10.0.oh240.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.apache.commons.lang</artifactId>
+      <version>2.6.0.v201404270220</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.apache.commons.lang/2.6.0.v201404270220/org.apache.commons.lang-2.6.0.v201404270220.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.smarthome.core</artifactId>
+      <version>0.10.0.oh240</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/org/eclipse/smarthome/core/org.eclipse.smarthome.core/0.10.0.oh240/org.eclipse.smarthome.core-0.10.0.oh240.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.slf4j.api</artifactId>
+      <version>1.7.2.v20121108-1250</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.slf4j.api/1.7.2.v20121108-1250/org.slf4j.api-1.7.2.v20121108-1250.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.smarthome.config.discovery</artifactId>
+      <version>0.11.0.201901262202</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/org/eclipse/smarthome/config/org.eclipse.smarthome.config.discovery/0.11.0-SNAPSHOT/org.eclipse.smarthome.config.discovery-0.11.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.smarthome.core.thing</artifactId>
+      <version>0.11.0.201901262202</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/org/eclipse/smarthome/core/org.eclipse.smarthome.core.thing/0.11.0-SNAPSHOT/org.eclipse.smarthome.core.thing-0.11.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.smarthome.io.console</artifactId>
+      <version>0.11.0.201901262202</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.console/0.11.0-SNAPSHOT/org.eclipse.smarthome.io.console-0.11.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.smarthome.config.discovery.upnp</artifactId>
+      <version>0.11.0.201901262202</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/org/eclipse/smarthome/config/org.eclipse.smarthome.config.discovery.upnp/0.11.0-SNAPSHOT/org.eclipse.smarthome.config.discovery.upnp-0.11.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.jupnp</artifactId>
+      <version>2.4.0</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.jupnp/2.4.0/org.jupnp-2.4.0.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.apache.commons.io</artifactId>
+      <version>2.2.0.v201405211200</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.apache.commons.io/2.2.0.v201405211200/org.apache.commons.io-2.2.0.v201405211200.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>tec.uom.lib.uom-lib-common</artifactId>
+      <version>1.0.2</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/tec.uom.lib.uom-lib-common/1.0.2/tec.uom.lib.uom-lib-common-1.0.2.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>tec.uom.se</artifactId>
+      <version>1.0.8</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/tec.uom.se/1.0.8/tec.uom.se-1.0.8.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.apache.commons.collections</artifactId>
+      <version>3.2.2.v201511171945</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.apache.commons.collections/3.2.2.v201511171945/org.apache.commons.collections-3.2.2.v201511171945.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.apache.commons.exec</artifactId>
+      <version>1.1.0.v201301240602</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.apache.commons.exec/1.1.0.v201301240602/org.apache.commons.exec-1.1.0.v201301240602.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.smarthome.io.net</artifactId>
+      <version>0.11.0.201901262202</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/org/eclipse/smarthome/io/org.eclipse.smarthome.io.net/0.11.0-SNAPSHOT/org.eclipse.smarthome.io.net-0.11.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>p2.eclipse-plugin</groupId>
+      <artifactId>org.eclipse.jdt.annotation</artifactId>
+      <version>2.2.0.v20180417-0931</version>
+      <scope>system</scope>
+      <systemPath>/home/pafoxp/.m2/repository/p2/osgi/bundle/org.eclipse.jdt.annotation/2.2.0.v20180417-0931/org.eclipse.jdt.annotation-2.2.0.v20180417-0931.jar</systemPath>
+    </dependency>
+  </dependencies>
+  <repositories>
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>jcenter</id>
+      <name>JCenter Repository</name>
+      <url>https://jcenter.bintray.com/</url>
+    </repository>
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>openhab-artifactory-release</id>
+      <name>JFrog Artifactory Repository</name>
+      <url>https://openhab.jfrog.io/openhab/libs-release</url>
+    </repository>
+    <repository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+      <id>openhab-artifactory-snapshot</id>
+      <name>JFrog Artifactory Repository</name>
+      <url>https://openhab.jfrog.io/openhab/libs-snapshot</url>
+    </repository>
+    <repository>
+      <id>p2-openhab-deps-repo</id>
+      <url>https://dl.bintray.com/openhab/p2/openhab-deps-repo/1.0.38</url>
+      <layout>p2</layout>
+    </repository>
+    <repository>
+      <id>eclipse-oxygen</id>
+      <url>http://download.eclipse.org/releases/oxygen/201709271000</url>
+      <layout>p2</layout>
+    </repository>
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>bintray</id>
+      <name>openHAB SmartHome Repository</name>
+      <url>https://dl.bintray.com/openhab/mvn/</url>
+    </repository>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>jcenter</id>
+      <name>JCenter Repository</name>
+      <url>https://jcenter.bintray.com/</url>
+    </pluginRepository>
+    <pluginRepository>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>artifactory</id>
+      <name>JFrog Artifactory Repository</name>
+      <url>https://openhab.jfrog.io/openhab/libs-release</url>
+    </pluginRepository>
+    <pluginRepository>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </pluginRepository>
+  </pluginRepositories>
+  <build>
+    <sourceDirectory>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/src/main/java</sourceDirectory>
+    <scriptSourceDirectory>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/src/main/scripts</scriptSourceDirectory>
+    <testSourceDirectory>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/src/test/java</testSourceDirectory>
+    <outputDirectory>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/target/classes</outputDirectory>
+    <testOutputDirectory>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/target/test-classes</testOutputDirectory>
+    <resources>
+      <resource>
+        <directory>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/src/main/resources</directory>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/src/test/resources</directory>
+      </testResource>
+    </testResources>
+    <directory>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/target</directory>
+    <finalName>org.openhab.binding.avmfritz2-2.4.0</finalName>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>1.3</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>2.2-beta-5</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>2.8</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.3.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.commonjava.maven.plugins</groupId>
+          <artifactId>directory-maven-plugin</artifactId>
+          <version>0.2</version>
+          <executions>
+            <execution>
+              <id>directories</id>
+              <phase>initialize</phase>
+              <goals>
+                <goal>highest-basedir</goal>
+              </goals>
+              <configuration>
+                <property>basedirRoot</property>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.karaf.tooling</groupId>
+          <artifactId>karaf-maven-plugin</artifactId>
+          <version>4.2.1</version>
+          <extensions>true</extensions>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>1.9.1</version>
+        </plugin>
+        <plugin>
+          <groupId>com.mycila</groupId>
+          <artifactId>license-maven-plugin</artifactId>
+          <version>3.0</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>check</goal>
+              </goals>
+              <configuration>
+                <basedir>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2</basedir>
+                <header>src/etc/header.txt</header>
+                <quiet>false</quiet>
+                <failIfMissing>true</failIfMissing>
+                <strictCheck>true</strictCheck>
+                <aggregate>true</aggregate>
+                <mapping>
+                  <xml>xml-header-style</xml>
+                </mapping>
+                <headerDefinitions>
+                  <headerDefinition>src/etc/xml-header-style.xml</headerDefinition>
+                </headerDefinitions>
+                <includes>
+                  <include>**/org/openhab/**/*.java</include>
+                  <include>**/feature.xml</include>
+                  <include>**/OSGI-INF/*.xml</include>
+                </includes>
+                <excludes>
+                  <exclude>target/**</exclude>
+                  <exclude>**/pom.xml</exclude>
+                  <exclude>_*.java</exclude>
+                </excludes>
+                <useDefaultExcludes>true</useDefaultExcludes>
+                <properties>
+                  <year>2018</year>
+                </properties>
+                <encoding>UTF-8</encoding>
+              </configuration>
+            </execution>
+          </executions>
+          <configuration>
+            <basedir>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2</basedir>
+            <header>src/etc/header.txt</header>
+            <quiet>false</quiet>
+            <failIfMissing>true</failIfMissing>
+            <strictCheck>true</strictCheck>
+            <aggregate>true</aggregate>
+            <mapping>
+              <xml>xml-header-style</xml>
+            </mapping>
+            <headerDefinitions>
+              <headerDefinition>src/etc/xml-header-style.xml</headerDefinition>
+            </headerDefinitions>
+            <includes>
+              <include>**/org/openhab/**/*.java</include>
+              <include>**/feature.xml</include>
+              <include>**/OSGI-INF/*.xml</include>
+            </includes>
+            <excludes>
+              <exclude>target/**</exclude>
+              <exclude>**/pom.xml</exclude>
+              <exclude>_*.java</exclude>
+            </excludes>
+            <useDefaultExcludes>true</useDefaultExcludes>
+            <properties>
+              <year>2018</year>
+            </properties>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-versions-plugin</artifactId>
+          <version>1.2.0</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>3.0.1</version>
+          <extensions>true</extensions>
+          <configuration>
+            <supportedProjectTypes>
+              <supportedProjectType>jar</supportedProjectType>
+              <supportedProjectType>bundle</supportedProjectType>
+              <supportedProjectType>eclipse-plugin</supportedProjectType>
+            </supportedProjectTypes>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-scr-plugin</artifactId>
+          <version>1.24.0</version>
+          <configuration>
+            <supportedProjectTypes>
+              <supportedProjectType>eclipse-plugin</supportedProjectType>
+              <supportedProjectType>eclipse-test-plugin</supportedProjectType>
+            </supportedProjectTypes>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>com.itemis.maven.plugins</groupId>
+          <artifactId>unleash-maven-plugin</artifactId>
+          <version>2.8.0</version>
+          <dependencies>
+            <dependency>
+              <groupId>com.itemis.maven.plugins</groupId>
+              <artifactId>unleash-scm-provider-git</artifactId>
+              <version>2.1.0</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>versions-maven-plugin</artifactId>
+          <version>2.5</version>
+        </plugin>
+        <plugin>
+          <groupId>org.openhab.tools.sat</groupId>
+          <artifactId>sat-plugin</artifactId>
+          <version>{sat.version}</version>
+          <executions>
+            <execution>
+              <phase>verify</phase>
+              <goals>
+                <goal>checkstyle</goal>
+                <goal>pmd</goal>
+                <goal>spotbugs</goal>
+                <goal>report</goal>
+              </goals>
+              <configuration>
+                <checkstyleProperties>${basedirRoot}/tools/checkstyle.properties</checkstyleProperties>
+                <checkstyleFilter>${basedirRoot}/tools/checkstyle_suppressions.xml</checkstyleFilter>
+              </configuration>
+            </execution>
+          </executions>
+          <configuration>
+            <checkstyleProperties>${basedirRoot}/tools/checkstyle.properties</checkstyleProperties>
+            <checkstyleFilter>${basedirRoot}/tools/checkstyle_suppressions.xml</checkstyleFilter>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-compiler-plugin</artifactId>
+          <version>1.2.0</version>
+          <configuration>
+            <encoding>UTF-8</encoding>
+            <source>1.8</source>
+            <target>1.8</target>
+            <compilerId>jdt</compilerId>
+            <useProjectSettings>false</useProjectSettings>
+            <extraClasspathElements>
+              <extraClasspathElement>
+                <groupId>org.eclipse.jdt</groupId>
+                <artifactId>org.eclipse.jdt.annotation</artifactId>
+                <version>2.1.0</version>
+              </extraClasspathElement>
+              <extraClasspathElement>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>org.apache.felix.scr.ds-annotations</artifactId>
+                <version>1.2.10</version>
+              </extraClasspathElement>
+            </extraClasspathElements>
+            <compilerArgs>
+              <arg>-warn:+nullAnnot(org.eclipse.jdt.annotation.Nullable|org.eclipse.jdt.annotation.NonNull|org.eclipse.jdt.annotation.NonNullByDefault),+null,+inheritNullAnnot,+nullAnnotConflict,-nullUncheckedConversion,+nullAnnotRedundant,+nullDereference</arg>
+            </compilerArgs>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>target-platform-configuration</artifactId>
+          <version>1.2.0</version>
+          <configuration>
+            <pomDependencies>consider</pomDependencies>
+            <environments>
+              <environment>
+                <os>linux</os>
+                <ws>gtk</ws>
+                <arch>x86</arch>
+              </environment>
+              <environment>
+                <os>linux</os>
+                <ws>gtk</ws>
+                <arch>x86_64</arch>
+              </environment>
+              <environment>
+                <os>win32</os>
+                <ws>win32</ws>
+                <arch>x86</arch>
+              </environment>
+              <environment>
+                <os>macosx</os>
+                <ws>cocoa</ws>
+                <arch>x86_64</arch>
+              </environment>
+            </environments>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-surefire-plugin</artifactId>
+          <version>1.2.0</version>
+          <configuration>
+            <failIfNoTests>false</failIfNoTests>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.6.1</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>compile</goal>
+              </goals>
+              <configuration>
+                <compilerId>groovy-eclipse-compiler</compilerId>
+              </configuration>
+            </execution>
+          </executions>
+          <dependencies>
+            <dependency>
+              <groupId>org.codehaus.groovy</groupId>
+              <artifactId>groovy-eclipse-compiler</artifactId>
+              <version>2.9.2-01</version>
+              <scope>compile</scope>
+            </dependency>
+            <dependency>
+              <groupId>org.codehaus.groovy</groupId>
+              <artifactId>groovy-eclipse-batch</artifactId>
+              <version>2.4.3-01</version>
+              <scope>compile</scope>
+            </dependency>
+          </dependencies>
+          <configuration>
+            <compilerId>groovy-eclipse-compiler</compilerId>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>1.2.0</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-packaging-plugin</artifactId>
+        <version>1.2.0</version>
+        <executions>
+          <execution>
+            <id>default-package-plugin</id>
+            <phase>package</phase>
+            <goals>
+              <goal>package-plugin</goal>
+            </goals>
+            <configuration>
+              <strictVersions>false</strictVersions>
+            </configuration>
+          </execution>
+          <execution>
+            <id>default-build-qualifier</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>build-qualifier</goal>
+            </goals>
+            <configuration>
+              <strictVersions>false</strictVersions>
+            </configuration>
+          </execution>
+          <execution>
+            <id>default-validate-id</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>validate-id</goal>
+            </goals>
+            <configuration>
+              <strictVersions>false</strictVersions>
+            </configuration>
+          </execution>
+          <execution>
+            <id>default-validate-version</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>validate-version</goal>
+            </goals>
+            <configuration>
+              <strictVersions>false</strictVersions>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <strictVersions>false</strictVersions>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy-eclipse-compiler</artifactId>
+        <version>2.9.2-01</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <compilerId>groovy-eclipse-compiler</compilerId>
+            </configuration>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-eclipse-compiler</artifactId>
+            <version>2.9.2-01</version>
+            <scope>compile</scope>
+          </dependency>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-eclipse-batch</artifactId>
+            <version>2.4.3-01</version>
+            <scope>compile</scope>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <compilerId>groovy-eclipse-compiler</compilerId>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-scr-plugin</artifactId>
+        <version>1.24.0</version>
+        <executions>
+          <execution>
+            <id>generate-scr-scrdescriptor</id>
+            <goals>
+              <goal>scr</goal>
+            </goals>
+            <configuration>
+              <supportedProjectTypes>
+                <supportedProjectType>eclipse-plugin</supportedProjectType>
+                <supportedProjectType>eclipse-test-plugin</supportedProjectType>
+              </supportedProjectTypes>
+            </configuration>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.service.component.annotations</artifactId>
+            <version>1.3.0</version>
+            <scope>compile</scope>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <supportedProjectTypes>
+            <supportedProjectType>eclipse-plugin</supportedProjectType>
+            <supportedProjectType>eclipse-test-plugin</supportedProjectType>
+          </supportedProjectTypes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>default-testResources</id>
+            <phase>process-test-resources</phase>
+            <goals>
+              <goal>testResources</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>default-resources</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>resources</goal>
+            </goals>
+          </execution>
+          <execution>
+            <phase>process-test-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/OSGI-INF</outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/target/classes/OSGI-INF</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.itemis.maven.plugins</groupId>
+        <artifactId>artifact-spy-plugin</artifactId>
+        <version>1.0.6</version>
+        <executions>
+          <execution>
+            <id>spy</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>spy</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.openhab.tools.sat</groupId>
+        <artifactId>sat-plugin</artifactId>
+        <version>0.5.0</version>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>checkstyle</goal>
+              <goal>pmd</goal>
+              <goal>spotbugs</goal>
+              <goal>report</goal>
+            </goals>
+            <configuration>
+              <checkstyleProperties>${basedirRoot}/tools/checkstyle.properties</checkstyleProperties>
+              <checkstyleFilter>${basedirRoot}/tools/checkstyle_suppressions.xml</checkstyleFilter>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <checkstyleProperties>${basedirRoot}/tools/checkstyle.properties</checkstyleProperties>
+          <checkstyleFilter>${basedirRoot}/tools/checkstyle_suppressions.xml</checkstyleFilter>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.commonjava.maven.plugins</groupId>
+        <artifactId>directory-maven-plugin</artifactId>
+        <version>0.2</version>
+        <executions>
+          <execution>
+            <id>directories</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>highest-basedir</goal>
+            </goals>
+            <configuration>
+              <property>basedirRoot</property>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>2.5</version>
+        <executions>
+          <execution>
+            <id>default-clean</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>1.2.0</version>
+        <executions>
+          <execution>
+            <id>default-target-platform</id>
+            <phase>package</phase>
+            <goals>
+              <goal>target-platform</goal>
+            </goals>
+            <configuration>
+              <pomDependencies>consider</pomDependencies>
+              <environments>
+                <environment>
+                  <os>linux</os>
+                  <ws>gtk</ws>
+                  <arch>x86</arch>
+                </environment>
+                <environment>
+                  <os>linux</os>
+                  <ws>gtk</ws>
+                  <arch>x86_64</arch>
+                </environment>
+                <environment>
+                  <os>win32</os>
+                  <ws>win32</ws>
+                  <arch>x86</arch>
+                </environment>
+                <environment>
+                  <os>macosx</os>
+                  <ws>cocoa</ws>
+                  <arch>x86_64</arch>
+                </environment>
+              </environments>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <pomDependencies>consider</pomDependencies>
+          <environments>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86</arch>
+            </environment>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86</arch>
+            </environment>
+            <environment>
+              <os>macosx</os>
+              <ws>cocoa</ws>
+              <arch>x86_64</arch>
+            </environment>
+          </environments>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-p2-plugin</artifactId>
+        <version>1.2.0</version>
+        <executions>
+          <execution>
+            <id>default-p2-metadata-default</id>
+            <phase>package</phase>
+            <goals>
+              <goal>p2-metadata-default</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>default-update-local-index</id>
+            <phase>install</phase>
+            <goals>
+              <goal>update-local-index</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-compiler-plugin</artifactId>
+        <version>1.2.0</version>
+        <executions>
+          <execution>
+            <id>default-compile</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <encoding>UTF-8</encoding>
+              <source>1.8</source>
+              <target>1.8</target>
+              <compilerId>jdt</compilerId>
+              <useProjectSettings>false</useProjectSettings>
+              <extraClasspathElements>
+                <extraClasspathElement>
+                  <groupId>org.eclipse.jdt</groupId>
+                  <artifactId>org.eclipse.jdt.annotation</artifactId>
+                  <version>2.1.0</version>
+                </extraClasspathElement>
+                <extraClasspathElement>
+                  <groupId>org.apache.felix</groupId>
+                  <artifactId>org.apache.felix.scr.ds-annotations</artifactId>
+                  <version>1.2.10</version>
+                </extraClasspathElement>
+              </extraClasspathElements>
+              <compilerArgs>
+                <arg>-warn:+nullAnnot(org.eclipse.jdt.annotation.Nullable|org.eclipse.jdt.annotation.NonNull|org.eclipse.jdt.annotation.NonNullByDefault),+null,+inheritNullAnnot,+nullAnnotConflict,-nullUncheckedConversion,+nullAnnotRedundant,+nullDereference</arg>
+              </compilerArgs>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <encoding>UTF-8</encoding>
+          <source>1.8</source>
+          <target>1.8</target>
+          <compilerId>jdt</compilerId>
+          <useProjectSettings>false</useProjectSettings>
+          <extraClasspathElements>
+            <extraClasspathElement>
+              <groupId>org.eclipse.jdt</groupId>
+              <artifactId>org.eclipse.jdt.annotation</artifactId>
+              <version>2.1.0</version>
+            </extraClasspathElement>
+            <extraClasspathElement>
+              <groupId>org.apache.felix</groupId>
+              <artifactId>org.apache.felix.scr.ds-annotations</artifactId>
+              <version>1.2.10</version>
+            </extraClasspathElement>
+          </extraClasspathElements>
+          <compilerArgs>
+            <arg>-warn:+nullAnnot(org.eclipse.jdt.annotation.Nullable|org.eclipse.jdt.annotation.NonNull|org.eclipse.jdt.annotation.NonNullByDefault),+null,+inheritNullAnnot,+nullAnnotConflict,-nullUncheckedConversion,+nullAnnotRedundant,+nullDereference</arg>
+          </compilerArgs>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.5.2</version>
+        <executions>
+          <execution>
+            <id>default-install</id>
+            <phase>install</phase>
+            <goals>
+              <goal>install</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.8.2</version>
+        <executions>
+          <execution>
+            <id>default-deploy</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.3</version>
+        <executions>
+          <execution>
+            <id>default-site</id>
+            <phase>site</phase>
+            <goals>
+              <goal>site</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/target/site</outputDirectory>
+              <reportPlugins>
+                <reportPlugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-project-info-reports-plugin</artifactId>
+                </reportPlugin>
+              </reportPlugins>
+            </configuration>
+          </execution>
+          <execution>
+            <id>default-deploy</id>
+            <phase>site-deploy</phase>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/target/site</outputDirectory>
+              <reportPlugins>
+                <reportPlugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-project-info-reports-plugin</artifactId>
+                </reportPlugin>
+              </reportPlugins>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <outputDirectory>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/target/site</outputDirectory>
+          <reportPlugins>
+            <reportPlugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-project-info-reports-plugin</artifactId>
+            </reportPlugin>
+          </reportPlugins>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <reporting>
+    <outputDirectory>/home/pafoxp/code-openhab/git-addons_R240/addons/binding/org.openhab.binding.avmfritz2/target/site</outputDirectory>
+  </reporting>
+</project>
+
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 7.809 s
+[INFO] Finished at: 2024-03-05T22:57:45+01:00
+[INFO] Final Memory: 75M/948M
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.openhab.binding</groupId>
+    <artifactId>pom</artifactId>
+    <version>2.4.0</version>
+  </parent>
+
+  <artifactId>org.openhab.binding.avmfritz2</artifactId>
+  <packaging>eclipse-plugin</packaging>
+
+  <name>AVM FRITZ2! Binding</name>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-compiler-plugin</artifactId>
+
+          <version>1.2.0</version>
+          <configuration>
+            <encoding>UTF-8</encoding>
+
+            <source>1.8</source>
+            <target>1.8</target>
+
+            <compilerId>jdt</compilerId>
+
+            <useProjectSettings>false</useProjectSettings>
+
+            <extraClasspathElements>
+              <extraClasspathElement>
+                <groupId>org.eclipse.jdt</groupId>
+                <artifactId>org.eclipse.jdt.annotation</artifactId>
+                <version>2.1.0</version>
+              </extraClasspathElement>
+              <extraClasspathElement>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>org.apache.felix.scr.ds-annotations</artifactId>
+                <version>1.2.10</version>
+              </extraClasspathElement>
+            </extraClasspathElements>
+
+            <compilerArgs>
+              <arg>-warn:+nullAnnot(org.eclipse.jdt.annotation.Nullable|org.eclipse.jdt.annotation.NonNull|org.eclipse.jdt.annotation.NonNullByDefault)</arg>
+			<!-- ahow null warnings:	  <arg>-warn:+null</arg> -->
+			  <arg>-warn:-null</arg>
+			  <arg>-warn:+inheritNullAnnot</arg>
+			  <arg>-warn:+nullAnnotConflict</arg>
+			  <arg>-warn:-nullUncheckedConversion</arg>
+			  <arg>-warn:+nullAnnotRedundant</arg>
+			  <arg>-warn:+nullDereference</arg>
+			<!-- show Access restrictions: <arg>-err:-forbidden</arg> -->
+              <arg>-err:-forbidden</arg>
+<!--
+              <arg>-err:+nullAnnot(org.eclipse.jdt.annotation.Nullable|org.eclipse.jdt.annotation.NonNull|org.eclipse.jdt.annotation.NonNullByDefault),+inheritNullAnnot,-nullUncheckedConversion</arg>
+              <arg>-warn:+null,-inheritNullAnnot,-nullAnnotConflict,-nullUncheckedConversion,-nullAnnotRedundant,-nullDereference</arg>
+-->
+            </compilerArgs>
+
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>
