@@ -9,6 +9,7 @@
   </parent>
 
   <artifactId>org.openhab.binding.avmfritz2</artifactId>
+  <!-- <packaging>kar</packaging> = Unknown packaging: kar @ org.openhab.bin..... -->
   <packaging>eclipse-plugin</packaging>
 
   <name>AVM FRITZ2! Binding</name>

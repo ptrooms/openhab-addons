@@ -6,6 +6,8 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
+// ptro 04mar24 - debug with pollcount
+
 package org.openhab.binding.avmfritz2.internal.handler;
 
 import static org.eclipse.smarthome.core.library.unit.SIUnits.CELSIUS;
@@ -180,7 +182,7 @@ public abstract class AVMFritzBaseBridgeHandler extends BaseBridgeHandler {
      * Polls the bridge.
      */
     private void poll() {
-		logger.debug("poll={} callback={}", pollCount, localFritzAhaUpdateXmlCallback); // ptro 04mar24 display
+		logger.debug("poll={} localFritzAhaUpdateXmlCallback={}", pollCount, localFritzAhaUpdateXmlCallback); // ptro 04mar24 display
 		// poll=2 callback=org.openhab.binding.avmfritz2.internal.hardware.callbacks.FritzAhaUpdateXmlCallback@16678f
         FritzAhaWebInterface webInterface = getWebInterface();	// ptro 04mar24 = return connection;
         if (webInterface != null) {

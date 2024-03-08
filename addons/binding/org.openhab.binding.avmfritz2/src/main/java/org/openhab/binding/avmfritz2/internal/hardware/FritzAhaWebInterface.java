@@ -6,6 +6,9 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
+
+// failed ptro 06mar24 added resiliance and tracking threadPool.getIdleThreads() in a+sync/get+Post
+
 package org.openhab.binding.avmfritz2.internal.hardware;
 
 import static org.eclipse.jetty.http.HttpMethod.*;
@@ -24,6 +27,7 @@ import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.jetty.client.HttpClient;
 import org.eclipse.jetty.client.api.ContentResponse;
 import org.eclipse.jetty.client.util.StringContentProvider;
+// import org.eclipse.jetty.util.thread.ThreadPool;			// failed ptro 06mar24 trackin for messages
 
 // does not work: eclipse prohibits Access restriction: The type is not API (restriction on classpath entry 
 // import	org.eclipse.jetty.util.thread.ThreadPool;	// ptro 04mar24 test to check sizes
@@ -85,12 +89,6 @@ public class FritzAhaWebInterface {
     protected static final Pattern ACCESS_PATTERN = Pattern
             .compile("<Name>HomeAuto</Name>\\s*?<Access>([0-9])</Access>");
 
-/* does not work: eclipse prohibits Access restriction: The type is not API (restriction on classpath entry 
-	private ThreadPool threadPool;	// ptro 04mar24 playing with theadpool values
-	// Eclipse has a mechanism called access restrictions to prevent you from accidentally 
-	//		using classes which Eclipse thinks are not part of the public API.
-*/
-
     /**
      * This method authenticates with the FRITZ!OS Web Interface and updates the session ID accordingly
      *
@@ -98,6 +96,11 @@ public class FritzAhaWebInterface {
      */
     @Nullable
     public String authenticate() {
+
+		// ptro 06mar24 : before any authentication, we start with an OFFLINE and side=null
+        handler.setStatusInfo(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
+                    "FRITZ!Box being re-athenticated, sid:=null");
+		sid = null;		// ensure this is null at start
 		logger.debug("ptro authenticate: begin 001"  ); // ptro 04mar24
         if (config.getPassword() == null) {
             handler.setStatusInfo(ThingStatus.OFFLINE, ThingStatusDetail.CONFIGURATION_ERROR,
@@ -108,7 +111,7 @@ public class FritzAhaWebInterface {
         String loginXml = syncGet(getURL(WEBSERVICE_PATH, addSID("")));
 		logger.debug("ptro authenticate: begin 002a"  ); // ptro 04mar24
         if (loginXml == null) {
-			logger.debug("ptro authenticate: begin 002c"  ); // ptro 04mar24
+			logger.debug("ptro authenticate: begin 002c COMMUNICATION_ERROR"  ); // ptro 04mar24
             handler.setStatusInfo(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
                     "FRITZ!Box does not respond");
 			logger.debug("ptro authenticate: begin 002d"  ); // ptro 04mar24
@@ -192,6 +195,7 @@ public class FritzAhaWebInterface {
 
 /*
 // does not work: eclipse prohibits Access restriction: The type is not API (restriction on classpath entry 
+// in addition we do not know the entry poiny
 // threadpool queries
 	public int maxThreads() {
 	  return threadPool.getMaxThreads();
@@ -245,6 +249,13 @@ public class FritzAhaWebInterface {
         this.config = config;
         this.handler = handler;
 /*
+
+	//	Resolved by pom.xml tycho-compiler-plugin< --> <configuration> <compilerArgs> <arg>-err:-forbidden</arg>
+	// does not work: eclipse prohibits Access restriction: The type is not API (restriction on classpath entry 
+	// private ThreadPool threadPool;	// ptro 04mar24 playing with theadpool values
+	// Eclipse has a mechanism called access restrictions to prevent you from accidentally 
+	//		using classes which Eclipse thinks are not part of the public API.
+
         if (httpClient != null) {
             try {
                 httpClient.stop();
@@ -257,7 +268,7 @@ public class FritzAhaWebInterface {
         sid = null;
         logger.debug("ptro initialise: Starting with config={} handler={} httpClient={}", config, handler, httpClient ); // ptro 04mar24
         authenticate();
-        logger.debug("Starting with SID {}", sid);
+        logger.debug("Starting with SID {}", sid);  // ptro 06mar24
     }
 
     /**
@@ -300,7 +311,9 @@ public class FritzAhaWebInterface {
     @Nullable
     public String syncGet(String url) {
         try {
-			logger.debug("ptro syncGet1: httpClient.newRequest={},  timeout={}", url, config.getSyncTimeout() ); // ptro 04mar24
+			logger.debug("ptro syncGet: httpClient.newRequest={},  timeout={}", url, config.getSyncTimeout() ); // ptro 04mar24
+			// logger.debug("ptro syncGet1: threadPool.getIdleThreads()={}", threadPool.getIdleThreads() ); // failed ptro 06mar24
+
 			// url=	<?xml version="1.0" encoding="utf-8"?>
 			//		<SessionInfo><SID>0000000000000000</SID>
 			//			<Challenge>20309b28</Challenge>
@@ -318,7 +331,9 @@ public class FritzAhaWebInterface {
             logger.debug("Response complete: {}", content);
             return content;
         } catch (ExecutionException | InterruptedException | TimeoutException e) {
-            logger.debug("Failed to GET url '{}': ", url, e.getLocalizedMessage(), e);
+            // logger.debug("Failed to GET url '{}': ", url, e.getLocalizedMessage(), e);
+            logger.warn("ptro syncGet Failed to GET url '{}': ", url, e.getLocalizedMessage(), e);	// ptro 05mar24
+			httpClient.dump();
             return null;
         }
     }
@@ -331,13 +346,17 @@ public class FritzAhaWebInterface {
      * @param callback Callback to handle the response with
      */
     public FritzAhaContentExchange asyncGet(String path, String args, FritzAhaCallback callback) {
+		// logger.debug("ptro asyncGet: threadPool.getIdleThreads()={}", threadPool.getIdleThreads() ); // failed ptro 06mar24
         if (!isAuthenticated()) {
+			logger.warn("FritzAhaContentExchange asyncGet will re-authenticate");	// ptro 06mar24 try to clarify things
             authenticate();
         }
         FritzAhaContentExchange getExchange = new FritzAhaContentExchange(callback);
-        httpClient.newRequest(getURL(path, addSID(args))).method(GET).onResponseSuccess(getExchange)
+        httpClient.newRequest(getURL(path, addSID(args))).method(GET)
+				.onResponseSuccess(getExchange)
                 .onResponseFailure(getExchange) // .onComplete(getExchange)
                 .send(getExchange);
+		logger.debug("FritzAhaContentExchange asyncGet={}", getExchange);		// ptro 06mar24 try to clarify things
         return getExchange;
     }
 
@@ -353,13 +372,16 @@ public class FritzAhaWebInterface {
      * @param callback Callback to handle the response with
      */
     public FritzAhaContentExchange asyncPost(String path, String args, FritzAhaCallback callback) {
+		// logger.debug("ptro asyncPost: threadPool.getIdleThreads()={}", threadPool.getIdleThreads() ); // failed ptro 06mar24
         if (!isAuthenticated()) {
+			logger.warn("FritzAhaContentExchange asyncPost will re-authenticate");	// ptro 06mar24 try to clarify things
             authenticate();
         }
         FritzAhaContentExchange postExchange = new FritzAhaContentExchange(callback);
         httpClient.newRequest(getURL(path)).timeout(config.getAsyncTimeout(), TimeUnit.SECONDS).method(POST)
                 .onResponseSuccess(postExchange).onResponseFailure(postExchange) // .onComplete(postExchange)
                 .content(new StringContentProvider(addSID(args), "UTF-8")).send(postExchange);
+		logger.debug("FritzAhaContentExchange asyncPost={}", postExchange);		// ptro 06mar24 try to understand things
         return postExchange;
     }
 

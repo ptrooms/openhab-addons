@@ -7,6 +7,13 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */
 
+// 06mar23 whenever nocontent and/or response status != 200, we return null to re-enforce errors in WebInterface
+// 06mar23 tbd --> 2024-03-06 14:12:11.610 [DEBUG] [nal.hardware.FritzAhaContentExchange] - 
+//			HTTP response 403 = response.getStatus()
+//			onFailure: No route to host
+//			onFailure: org.eclipse.jetty.client.HttpClient@1d4164b is stopped 
+// 			after restart session is hanging
+
 // 31jan23 18u00 ptro: this regularly goes wrong upto the point that 1024 requests has been queued and the handler then fails.
 // .... Jetty leaking connection when body is not read artipie/http-client#23
 
@@ -58,8 +65,8 @@ public class FritzAhaContentExchange extends BufferingResponseListener
     @Override
 	// void 	onSuccess​(Request request) 	
 	//		Callback method invoked when the request has been successfully sent.
-    public void onSuccess(Response response) {
-        logger.debug("HTTP response {}", response.getStatus());
+    public void onSuccess(Response response) {		// HTTP response 403 
+        logger.debug("onSuccess HTTP response {}", response.getStatus());		// ptro 06mar24 to track onSuccess
     }
 
     /**
@@ -69,7 +76,7 @@ public class FritzAhaContentExchange extends BufferingResponseListener
 	// void 	onFailure​(Request request, java.lang.Throwable failure) 	
 	//		Callback method invoked when the request has failed to be sent
     public void onFailure(Response response, Throwable failure) {
-        logger.debug("onFailure: {}", failure.getLocalizedMessage());
+        logger.warn("FritzAhaContentExchange onFailure()={}", failure.getLocalizedMessage()); // ptro 06mar24 to track onFailure
     }
 
     /**
@@ -79,8 +86,43 @@ public class FritzAhaContentExchange extends BufferingResponseListener
 	// void 	onComplete​(Result result) 	
 	//		Callback method invoked when the request and the response have been processed, either successfully or not.
     public void onComplete(Result result) {
-        logger.debug("response complete: {}", this.getContentAsString());
-        this.callback.execute(result.getResponse().getStatus(), this.getContentAsString());
+/*
+		if (intValue(result.getResponse().getStatus()) == 200 ) {
+	        logger.debug("onComplete response200 getContentAsString:{} , status={} EOF.", this.getContentAsString(), result.getResponse().getStatus());	// HTTP response 403 = "" 
+
+		} else {
+	        logger.debug("onComplete response??? getContentAsString:{} , status={} EOF.", this.getContentAsString(), result.getResponse().getStatus());	// HTTP response 403 = "" 
+		}
+*/
+/*
+
+		logger.debug("onComplete response??? getContentAsString:{} , status={} type={}.", 
+				this.getContentAsString(), 
+				result.getResponse().getStatus(), 
+				result.getClass() ) ;	// HTTP response 403 = ""
+//				result.getClass().getName() ) ;	// HTTP response 403 = ""  
+
+		// if (result.getResponse().getStatus().compareTo(200) ) {
+		if (result.getResponse().getStatus() != 200 ) {
+			logger.warn("result.getResponse().getStatus()={}{", result.getResponse().getStatus()); 
+		}
+		if (result.getResponse().getStatus() < 201 ) {
+			logger.debug("result.getResponse().getStatus() < 201 is detected"); 
+		}
+		if (result.getResponse().getStatus() > 200 ) {
+			logger.debug("result.getResponse().getStatus() > 200 is detected"); 
+		}
+*/
+		// ptro 06mar24 enforce null in response if no output or not http response 200
+		if (this.getContentAsString() == "" || result.getResponse().getStatus() != 200 ) {
+		        logger.warn("onComplete response {} : getContentAsString forced to null.", result.getResponse().getStatus()); 		// ptro 06mar24 to track null response
+		        this.callback.execute(result.getResponse().getStatus(), null);
+		} else {
+		        logger.debug("onComplete response is value {}", result.getResponse().getStatus() ) ; 	// ptro 06mar24 to track OK response
+		        this.callback.execute(result.getResponse().getStatus(), this.getContentAsString());
+		} 
+		// has null if response.getStatus() = 403 ,should alway be 200 to be ok
+        // this.callback.execute(result.getResponse().getStatus(), this.getContentAsString());
     }
 	// https://eclipse.dev/jetty/javadoc/jetty-9/org/eclipse/jetty/client/api/ContentResponse.html
 	// response complete: 

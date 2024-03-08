@@ -6,6 +6,9 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
+
+// 06mar23 ptro localise httpClient to solved queingstuck problem when FritzBox does not respond
+
 package org.openhab.binding.avmfritz2.internal;
 
 import static org.openhab.binding.avmfritz2.internal.BindingConstants.*;
@@ -123,8 +126,12 @@ public class AVMFritzHandlerFactory2 extends BaseThingHandlerFactory {
 
     @Reference
     protected void setHttpClientFactory(HttpClientFactory httpClientFactory) {
-//        this.httpClient = httpClientFactory.getCommonHttpClient();	
+
+//	section changed start localised HttpClient.
+//        this.httpClient = httpClientFactory.getCommonHttpClient();	// ptro 06mar24 replaced by httpClient.stop/start
+// stop/start is allowed in eclipse when we add compilerArgs <arg>-err:-forbidden</arg> to pom.xml
         this.httpClient = new HttpClient();		// ptro 05mar24 try our own http client
+		logger.info("setHttpClientFactory {} start() httpClient='{} , this.httpClient {} ", httpClientFactory, httpClient, this.httpClient );
         try {
             httpClient.start();
         } catch (Exception e) {
@@ -135,15 +142,17 @@ public class AVMFritzHandlerFactory2 extends BaseThingHandlerFactory {
     }
 
     protected void unsetHttpClientFactory(HttpClientFactory httpClientFactory) {
+		logger.info("unsetHttpClientFactory2 {} httpClient='{} , this.httpClient {} ", httpClientFactory, httpClient, this.httpClient );
 
-        try {			// ptro 05mar24 try our own http client
+//	section added to stop localised HttpClient.
+//		stop/start is allowed in eclipse when we add compilerArgs <arg>-err:-forbidden</arg> to pom.xml
+        try {									// ptro 06mar24 try our own http client
             httpClient.stop();
         } catch (Exception e) {
             // just dirty logging for testing purposes.
 			logger.debug("failed httpClient.stop: '{}': ", e.getLocalizedMessage(), e);
             // logger.debug("{}", ExceptionUtils.getFullStackTrace(e));
         }
-
 
         this.httpClient = null;
 
