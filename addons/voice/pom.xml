@@ -18,7 +18,7 @@
   <modules>
     <module>org.openhab.voice.googletts</module>
 	<!--<module>org.openhab.voice.kaldi</module>-->
-    <module>org.openhab.voice.marytts</module>
+    <!-- 08mar23 ptro file freetts-1.0.jar not found  <module>org.openhab.voice.marytts</module> -->
     <module>org.openhab.voice.picotts</module>
     <module>org.openhab.voice.voicerss</module>
   </modules>

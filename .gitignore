@@ -15,11 +15,15 @@ bundles/
 targetplatform/*.launch
 
 
-# ignore vscode
+# ignore vscode 08mar24
 .vscode/
 .classpath
 .project
 .settings
+*.code-workspace
+*.deleted
+*.org
+oh240_*.txt
 
 distribution/openhabhome/logs/*.log
 distribution/openhabhome/*.zip

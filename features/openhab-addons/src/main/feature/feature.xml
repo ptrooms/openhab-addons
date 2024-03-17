@@ -745,12 +745,6 @@
         <bundle start-level="80">mvn:org.openhab.io/org.openhab.io.homekit/${project.version}</bundle>
     </feature>
 
-    <feature name="openhab-misc-imperihome" description="ImperiHome Integration" version="${project.version}">
-        <feature>openhab-runtime-base</feature>
-        <feature>esh-model-item</feature>
-        <bundle start-level="80">mvn:org.openhab.io/org.openhab.io.imperihome/${project.version}</bundle>
-    </feature>
-
     <feature name="openhab-misc-neeo" description="NEEO Integration" version="${project.version}">
         <feature>openhab-runtime-base</feature>
         <bundle start-level="80">mvn:org.openhab.io/org.openhab.io.neeo/${project.version}</bundle>
@@ -769,10 +763,12 @@
     </feature>
 -->
 
+<!--
     <feature name="openhab-voice-marytts" description="Mary Text-to-Speech" version="${project.version}">
         <feature>openhab-runtime-base</feature>
         <bundle start-level="80">mvn:org.openhab.voice/org.openhab.voice.marytts/${project.version}</bundle>
     </feature>
+-->
 
     <feature name="openhab-voice-picotts" description="Pico Text-to-Speech" version="${project.version}">
         <feature>openhab-runtime-base</feature>
