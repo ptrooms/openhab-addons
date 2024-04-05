@@ -1,4 +1,4 @@
 # nullified 17mar ptro ------ no purpose
-# !target/
-# target/*
-# !target/*.jar
+target/
+arget/*
+target/*.jar
