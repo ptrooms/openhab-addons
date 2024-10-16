@@ -1,6 +1,8 @@
 *.iml
 .DS_Store
 target/
+target1/
+target2/
 src-gen/
 xtend-gen/
 bin/

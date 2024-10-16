@@ -5,11 +5,11 @@
 	xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 org.eclipse.smarthome.thing-description.xsd">
 
 	<!-- Supported FRITZ!Box and FRITZ!Powerline -->
-	<bridge-type id="fritzbox">
+	<bridge-type id="fritzbox2">
 		<label>FRITZ2!Box</label>
 		<description>This bridge represents a FRITZ2!Box.</description>
 
-		<config-description-ref uri="bridge-type:avmfritz2:fritzbox" />
+		<config-description-ref uri="bridge-type:avmfritz2:fritzbox2" />
 	</bridge-type>
 
 	<bridge-type id="FRITZ2_Powerline_546E_Solo">
@@ -25,6 +25,6 @@
 			<channel id="outlet" typeId="outlet" />
 		</channels>
 
-		<config-description-ref uri="bridge-type:avmfritz2:fritzpowerline" />
+		<config-description-ref uri="bridge-type:avmfritz2:fritzpowerline2" />
 	</bridge-type>
 </thing:thing-descriptions>

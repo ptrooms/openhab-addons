@@ -5,14 +5,14 @@
 	xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
 
 	<!-- Supported FRITZ2! devices and features -->
-	<thing-type id="Comet_DECT">
+	<thing-type id="Comet2_DECT">
 		<supported-bridge-type-refs>
-			<bridge-type-ref id="fritzbox" />
+			<bridge-type-ref id="fritzbox2" />
 			<bridge-type-ref id="FRITZ2_Powerline_546E_Solo" />
 		</supported-bridge-type-refs>
 
 		<label>Comet DECT</label>
-		<description>Comet DECT heating thermostat.</description>
+		<description>Comet DECT2 heating thermostat.</description>
 
 		<channels>
 			<channel id="mode" typeId="mode" />
@@ -36,7 +36,7 @@
 
 	<thing-type id="FRITZ2_DECT_301">
 		<supported-bridge-type-refs>
-			<bridge-type-ref id="fritzbox" />
+			<bridge-type-ref id="fritzbox2" />
 			<bridge-type-ref id="FRITZ2_Powerline_546E_Solo" />
 		</supported-bridge-type-refs>
 
@@ -60,12 +60,12 @@
 
 		<representation-property>ain</representation-property>
 
-		<config-description-ref uri="thing-type:avmfritz:fritzdevice" />
+		<config-description-ref uri="thing-type:avmfritz2:fritzdevice" />
 	</thing-type>
 
-	<thing-type id="FRITZ_DECT_300">
+	<thing-type id="FRITZ2_DECT_300">
 		<supported-bridge-type-refs>
-			<bridge-type-ref id="fritzbox" />
+			<bridge-type-ref id="fritzbox2" />
 			<bridge-type-ref id="FRITZ2_Powerline_546E_Solo" />
 		</supported-bridge-type-refs>
 
@@ -89,12 +89,12 @@
 
 		<representation-property>ain</representation-property>
 
-		<config-description-ref uri="thing-type:avmfritz:fritzdevice" />
+		<config-description-ref uri="thing-type:avmfritz2:fritzdevice" />
 	</thing-type>
 
 	<thing-type id="FRITZ2_DECT_210">
 		<supported-bridge-type-refs>
-			<bridge-type-ref id="fritzbox" />
+			<bridge-type-ref id="fritzbox2" />
 			<bridge-type-ref id="FRITZ2_Powerline_546E_Solo" />
 		</supported-bridge-type-refs>
 
@@ -113,12 +113,12 @@
 
 		<representation-property>ain</representation-property>
 
-		<config-description-ref uri="thing-type:avmfritz:fritzdevice" />
+		<config-description-ref uri="thing-type:avmfritz2:fritzdevice" />
 	</thing-type>
 
-	<thing-type id="FRITZ_DECT_200">
+	<thing-type id="FRITZ2_DECT_200">
 		<supported-bridge-type-refs>
-			<bridge-type-ref id="fritzbox" />
+			<bridge-type-ref id="fritzbox2" />
 			<bridge-type-ref id="FRITZ2_Powerline_546E_Solo" />
 		</supported-bridge-type-refs>
 
@@ -142,7 +142,7 @@
 
 	<thing-type id="FRITZ2_Powerline_546E">
 		<supported-bridge-type-refs>
-			<bridge-type-ref id="fritzbox" />
+			<bridge-type-ref id="fritzbox2" />
 			<bridge-type-ref id="FRITZ2_Powerline_546E_Solo" />
 		</supported-bridge-type-refs>
 
@@ -166,7 +166,7 @@
 
 	<thing-type id="FRITZ2_DECT_Repeater_100">
 		<supported-bridge-type-refs>
-			<bridge-type-ref id="fritzbox" />
+			<bridge-type-ref id="fritzbox2" />
 			<bridge-type-ref id="FRITZ2_Powerline_546E_Solo" />
 		</supported-bridge-type-refs>
 
@@ -182,9 +182,9 @@
 		<config-description-ref uri="thing-type:avmfritz2:fritzdevice" />
 	</thing-type>
 
-	<thing-type id="HAN_FUN_CONTACT">
+	<thing-type id="HAN2_FUN_CONTACT">
 		<supported-bridge-type-refs>
-			<bridge-type-ref id="fritzbox" />
+			<bridge-type-ref id="fritzbox2" />
 			<bridge-type-ref id="FRITZ2_Powerline_546E_Solo" />
 		</supported-bridge-type-refs>
 
@@ -200,9 +200,9 @@
 		<config-description-ref uri="thing-type:avmfritz2:fritzdevice" />
 	</thing-type>
 
-	<thing-type id="HAN_FUN_SWITCH">
+	<thing-type id="HAN2_FUN_SWITCH">
 		<supported-bridge-type-refs>
-			<bridge-type-ref id="fritzbox" />
+			<bridge-type-ref id="fritzbox2" />
 			<bridge-type-ref id="FRITZ2_Powerline_546E_Solo" />
 		</supported-bridge-type-refs>
 
@@ -225,7 +225,7 @@
 	<!-- Supported FRITZ2! groups and features -->
 	<thing-type id="FRITZ2_GROUP_HEATING">
 		<supported-bridge-type-refs>
-			<bridge-type-ref id="fritzbox" />
+			<bridge-type-ref id="fritzbox2" />
 			<bridge-type-ref id="FRITZ2_Powerline_546E_Solo" />
 		</supported-bridge-type-refs>
 
@@ -253,7 +253,7 @@
 
 	<thing-type id="FRITZ2_GROUP_SWITCH">
 		<supported-bridge-type-refs>
-			<bridge-type-ref id="fritzbox" />
+			<bridge-type-ref id="fritzbox2" />
 			<bridge-type-ref id="FRITZ2_Powerline_546E_Solo" />
 		</supported-bridge-type-refs>
 

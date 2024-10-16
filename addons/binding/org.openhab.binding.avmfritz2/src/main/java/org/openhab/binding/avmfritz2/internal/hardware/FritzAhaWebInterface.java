@@ -98,6 +98,8 @@ public class FritzAhaWebInterface {
     public String authenticate() {
 
 		// ptro 06mar24 : before any authentication, we start with an OFFLINE and side=null
+		// 2024-04-08 16:29:50.015 [WARN ] [smarthome.model.script.AAZ-FritzBox2] - 
+		//		Fritz-Box2 Status Status Is:OFFLINE Detail:COMMUNICATION_ERROR Description:FRITZ!Box being re-athenticated, sid:=null
         handler.setStatusInfo(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
                     "FRITZ!Box being re-athenticated, sid:=null");
 		sid = null;		// ensure this is null at start
@@ -107,9 +109,11 @@ public class FritzAhaWebInterface {
                     "Please configure password first");
             return null;
         }
+
 		logger.debug("ptro authenticate: begin 002 WEBSERVICE_PATH={}", WEBSERVICE_PATH  ); // ptro 04mar24
-        String loginXml = syncGet(getURL(WEBSERVICE_PATH, addSID("")));
-		logger.debug("ptro authenticate: begin 002a"  ); // ptro 04mar24
+        String loginXml = syncGet(getURL(WEBSERVICE_PATH, addSID("")));						// ptro 08apr24
+		logger.debug("ptro authenticate: begin 002a, loginXml={}", loginXml ); // ptro 04mar24
+
         if (loginXml == null) {
 			logger.debug("ptro authenticate: begin 002c COMMUNICATION_ERROR"  ); // ptro 04mar24
             handler.setStatusInfo(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
@@ -248,22 +252,34 @@ public class FritzAhaWebInterface {
             HttpClient httpClient) {
         this.config = config;
         this.handler = handler;
-/*
 
-	//	Resolved by pom.xml tycho-compiler-plugin< --> <configuration> <compilerArgs> <arg>-err:-forbidden</arg>
-	// does not work: eclipse prohibits Access restriction: The type is not API (restriction on classpath entry 
-	// private ThreadPool threadPool;	// ptro 04mar24 playing with theadpool values
-	// Eclipse has a mechanism called access restrictions to prevent you from accidentally 
-	//		using classes which Eclipse thinks are not part of the public API.
+
+	// activated start 08apr24
+
+		//	Resolved by pom.xml tycho-compiler-plugin< --> <configuration> <compilerArgs> <arg>-err:-forbidden</arg>
+		// does not work: eclipse prohibits Access restriction: The type is not API (restriction on classpath entry 
+		// private ThreadPool threadPool;	// ptro 04mar24 playing with theadpool values
+		// Eclipse has a mechanism called access restrictions to prevent you from accidentally 
+		//		using classes which Eclipse thinks are not part of the public API.
 
         if (httpClient != null) {
+			logger.debug("ptro initialise: Stopping  httpClient.stop()" ); // ptro 04mar24
             try {
                 httpClient.stop();
-            } catch (Exception e) {
-                // ignore
-            }
-		httpClient.start();
-*/
+			} catch (Exception e) {
+				logger.debug("failed httpClient.stop: '{}': ", e.getLocalizedMessage(), e);
+		     }
+		    logger.debug("ptro initialise: Starting  httpClient.start()" ); // ptro 04mar24
+		}
+	    try {
+			httpClient.start();
+	    } catch (Exception e) {
+			logger.debug("failed httpClient.start: '{}': ", e.getLocalizedMessage(), e);
+        }
+	    logger.debug("ptro initialise: Starting  httpClient.start()" ); // ptro 04mar24
+
+	// activated end 08apr24
+
         this.httpClient = httpClient;
         sid = null;
         logger.debug("ptro initialise: Starting with config={} handler={} httpClient={}", config, handler, httpClient ); // ptro 04mar24
@@ -322,18 +338,37 @@ public class FritzAhaWebInterface {
 			//		</SessionInfo>
 			// timeout=2000
 			// read: https://archive.eclipse.org/jetty/9.4.3.v20170317/apidocs/org/eclipse/jetty/client/HttpClient.html#newRequest-java.net.URI-
+			//
             ContentResponse contentResponse = httpClient.newRequest(url)
 					.timeout(config.getSyncTimeout(), TimeUnit.MILLISECONDS)
 					.method(GET)
 					.send();
+			// problem  ----- request to url is hold in queue, even when there's not contentResponse
+
 			logger.debug("ptro syncGet2: contentResponse={}", contentResponse ); // ptro 04mar24
             String content = contentResponse.getContentAsString();
             logger.debug("Response complete: {}", content);
             return content;
         } catch (ExecutionException | InterruptedException | TimeoutException e) {
             // logger.debug("Failed to GET url '{}': ", url, e.getLocalizedMessage(), e);
-            logger.warn("ptro syncGet Failed to GET url '{}': ", url, e.getLocalizedMessage(), e);	// ptro 05mar24
+            logger.warn("ptro syncGet Failed to GET url '{}; do stop/start to cancel': ", url, e.getLocalizedMessage(), e);	// ptro 05mar24
 			httpClient.dump();
+
+			// stop/start here ?????
+				/* does not function
+					try {
+						httpClient.stop();
+					} catch (Exception e1) {
+							logger.debug("failed httpClient.stop: '{}': ", e1.getLocalizedMessage(), e1);
+					}
+					try {
+						httpClient.start();
+					} catch (Exception e2) {
+						logger.debug("failed httpClient.start: '{}': ", e2.getLocalizedMessage(), e2);
+					}
+				*/
+
+
             return null;
         }
     }
@@ -348,6 +383,7 @@ public class FritzAhaWebInterface {
     public FritzAhaContentExchange asyncGet(String path, String args, FritzAhaCallback callback) {
 		// logger.debug("ptro asyncGet: threadPool.getIdleThreads()={}", threadPool.getIdleThreads() ); // failed ptro 06mar24
         if (!isAuthenticated()) {
+			// 2024-04-08 16:31:36.737 [WARN ] [ternal.hardware.FritzAhaWebInterface] - FritzAhaContentExchange asyncGet will re-authenticate 
 			logger.warn("FritzAhaContentExchange asyncGet will re-authenticate");	// ptro 06mar24 try to clarify things
             authenticate();
         }

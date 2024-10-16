@@ -68,7 +68,7 @@ The credentials given in the settings must have HomeAuto permissions.
 To disable it, you can add the following line to `<openHAB-conf>/services/runtime.cfg`:
 
 ```
-discovery.avmfritz:background=false
+discovery.avmfritz2:background=false
 ```
 
 If correct credentials are set in the bridge configuration, connected AHA devices are discovered automatically (may last up to 3 minutes).

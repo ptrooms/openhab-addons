@@ -4,7 +4,7 @@
 	xmlns:config-description="http://eclipse.org/smarthome/schemas/config-description/v1.0.0"
 	xsi:schemaLocation="http://eclipse.org/smarthome/schemas/config-description/v1.0.0 http://eclipse.org/smarthome/schemas/config-description-1.0.0.xsd">
 
-	<config-description uri="bridge-type:avmfritz2:fritzbox">
+	<config-description uri="bridge-type:avmfritz2:fritzbox2">
 		<parameter-group name="network">
 			<label>Network</label>
 			<description>Network settings.</description>
@@ -21,7 +21,7 @@
 			<context>network-address</context>
 			<label>IP address</label>
 			<description>The local IP address or hostname of the FRITZ2!Box.</description>
-			<default>fritz.box</default>
+			<default>fritz2.box</default>
 		</parameter>
 		<parameter name="port" type="integer" required="false" min="0" max="65335" groupName="network">
 			<label>Port</label>
@@ -49,23 +49,23 @@
 			groupName="connection">
 			<label>Polling Interval</label>
 			<description>Interval polling the FRITZ2!Box (in seconds).</description>
-			<default>15</default>
+			<default>12</default>
 		</parameter>
 		<parameter name="asyncTimeout" type="integer" required="false" min="1000" max="60000" unit="ms"
 			groupName="connection">
 			<label>Async Timeout</label>
 			<description>Timeout for asynchronous connections (in milliseconds).</description>
-			<default>10000</default>
+			<default>10012</default>
 		</parameter>
 		<parameter name="syncTimeout" type="integer" required="false" min="500" max="15000" unit="ms"
 			groupName="connection">
 			<label>Timeout</label>
 			<description>Timeout for synchronous connections (in milliseconds).</description>
-			<default>2000</default>
+			<default>2012</default>
 		</parameter>
 	</config-description>
 
-	<config-description uri="bridge-type:avmfritz2:fritzpowerline">
+	<config-description uri="bridge-type:avmfritz2:fritzpowerline2">
 		<parameter-group name="network">
 			<label>Network</label>
 			<description>Network settings.</description>
@@ -106,19 +106,19 @@
 			groupName="connection">
 			<label>Polling Interval</label>
 			<description>Interval polling the FRITZ2!Powerline (in seconds).</description>
-			<default>15</default>
+			<default>12</default>
 		</parameter>
 		<parameter name="asyncTimeout" type="integer" required="false" min="1000" max="60000" unit="ms"
 			groupName="connection">
 			<label>Async Timeout</label>
 			<description>Timeout for asynchronous connections (in milliseconds).</description>
-			<default>10000</default>
+			<default>10012</default>
 		</parameter>
 		<parameter name="syncTimeout" type="integer" required="false" min="500" max="15000" unit="ms"
 			groupName="connection">
 			<label>Timeout</label>
 			<description>Timeout for synchronous connections (in milliseconds).</description>
-			<default>2000</default>
+			<default>2012</default>
 		</parameter>
 	</config-description>
 

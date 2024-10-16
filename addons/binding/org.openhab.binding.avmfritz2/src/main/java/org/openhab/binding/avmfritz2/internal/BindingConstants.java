@@ -30,25 +30,25 @@ public class BindingConstants {
     public static final String INVALID_PATTERN = "[^a-zA-Z0-9_]";
 
     public static final String BINDING_ID = "avmfritz2";
-    public static final String BRIDGE_FRITZBOX = "fritzbox";
+    public static final String BRIDGE_FRITZBOX = "fritzbox2";
     public static final String BOX_MODEL_NAME = "FRITZ!Box";
     public static final String POWERLINE_MODEL_NAME = "FRITZ!Powerline";
 
     // List of main device types
-    public static final String DEVICE_DECT301 = "FRITZ_DECT_301";
-    public static final String DEVICE_DECT300 = "FRITZ_DECT_300";
-    public static final String DEVICE_DECT210 = "FRITZ_DECT_210";
-    public static final String DEVICE_DECT200 = "FRITZ_DECT_200";
-    public static final String DEVICE_DECT100 = "FRITZ_DECT_Repeater_100";
-    public static final String DEVICE_PL546E = "FRITZ_Powerline_546E";
-    public static final String DEVICE_PL546E_STANDALONE = "FRITZ_Powerline_546E_Solo";
-    public static final String DEVICE_COMETDECT = "Comet_DECT";
-    public static final String DEVICE_HAN_FUN_CONTACT = "HAN_FUN_CONTACT";
-    public static final String DEVICE_HAN_FUN_SWITCH = "HAN_FUN_SWITCH";
+    public static final String DEVICE_DECT301 = "FRITZ2_DECT_301";
+    public static final String DEVICE_DECT300 = "FRITZ2_DECT_300";
+    public static final String DEVICE_DECT210 = "FRITZ2_DECT_210";
+    public static final String DEVICE_DECT200 = "FRITZ2_DECT_200";
+    public static final String DEVICE_DECT100 = "FRITZ2_DECT_Repeater_100";
+    public static final String DEVICE_PL546E = "FRITZ2_Powerline_546E";
+    public static final String DEVICE_PL546E_STANDALONE = "FRITZ2_Powerline_546E_Solo";
+    public static final String DEVICE_COMETDECT = "Comet2_DECT";
+    public static final String DEVICE_HAN_FUN_CONTACT = "HAN2_FUN_CONTACT";
+    public static final String DEVICE_HAN_FUN_SWITCH = "HAN_2FUN_SWITCH";
 
     // List of main group types
-    public static final String GROUP_HEATING = "FRITZ_GROUP_HEATING";
-    public static final String GROUP_SWITCH = "FRITZ_GROUP_SWITCH";
+    public static final String GROUP_HEATING = "FRITZ2_GROUP_HEATING";
+    public static final String GROUP_SWITCH = "FRITZ2_GROUP_SWITCH";
 
     // List of all Thing Type UIDs
     public static final ThingTypeUID BRIDGE_THING_TYPE = new ThingTypeUID(BINDING_ID, BRIDGE_FRITZBOX);
