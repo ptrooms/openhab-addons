@@ -267,7 +267,7 @@ public class FritzAhaWebInterface {
      * @param callback Callback to handle the response with
      */
     public FritzAhaContentExchange asyncGet(String path, String args, FritzAhaCallback callback) {
-        if (!isAuthenticated()) {
+        if (!isAuthenticated()) { // return !(sid == null); if sid=0 then return !0=1 giving if 0
             authenticate();
         }
         FritzAhaContentExchange getExchange = new FritzAhaContentExchange(callback);

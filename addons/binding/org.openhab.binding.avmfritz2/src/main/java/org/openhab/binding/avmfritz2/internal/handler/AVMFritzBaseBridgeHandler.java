@@ -17,6 +17,7 @@ import static org.openhab.binding.avmfritz2.internal.ahamodel.DeviceModel.ETSUni
 import static org.openhab.binding.avmfritz2.internal.ahamodel.HeatingModel.*;
 
 import java.math.BigDecimal;
+
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -28,9 +29,13 @@ import java.util.Optional;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
+
+
+
+
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
-import org.eclipse.jetty.client.HttpClient;
+import org.eclipse.jetty.client.HttpClient;     // https://javadoc.jetty.org/jetty-12/org/eclipse/jetty/client/HttpClient.html
 import org.eclipse.smarthome.config.core.Configuration;
 import org.eclipse.smarthome.core.library.types.DateTimeType;
 import org.eclipse.smarthome.core.library.types.DecimalType;
@@ -60,7 +65,7 @@ import org.openhab.binding.avmfritz2.internal.ahamodel.GroupModel;
 import org.openhab.binding.avmfritz2.internal.ahamodel.SwitchModel;
 import org.openhab.binding.avmfritz2.internal.config.AVMFritzConfiguration;
 import org.openhab.binding.avmfritz2.internal.hardware.FritzAhaWebInterface;
-import org.openhab.binding.avmfritz2.internal.hardware.callbacks.FritzAhaUpdateXmlCallback;
+import org.openhab.binding.avmfritz2.internal.hardware.callbacks.FritzAhaUpdateXmlCallback; // ../internal/hardware/callbacks/FritzAhaUpdateXmlCallback.java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -73,18 +78,22 @@ import org.slf4j.LoggerFactory;
  */
 @NonNullByDefault
 public abstract class AVMFritzBaseBridgeHandler extends BaseBridgeHandler {
-	// inherited from ../ptrooms_smarthome/bundles/core/org.eclipse.smarthome.core.thing
+
+    // inherited from ../ptrooms_smarthome/bundles/core/org.eclipse.smarthome.core.thing
 	//		/src/main/java/org/eclipse/smarthome/core/thing/binding/BaseBridgeHandler.java
 
+
+    private final Logger logger = LoggerFactory.getLogger(AVMFritzBaseBridgeHandler.class);
+    
 	static int pollCount = 0;		// ptro 04mar24 to keep track of calls
 	static @Nullable FritzAhaUpdateXmlCallback localFritzAhaUpdateXmlCallback = null;	// try to design single calls, set at 0
 
-    private final Logger logger = LoggerFactory.getLogger(AVMFritzBaseBridgeHandler.class);
+
 
     /**
      * Initial delay in s for polling job.
      */
-    private static final int INITIAL_DELAY = 1;		// ptro fyi: fina = cannot later be changed.
+    private static final int INITIAL_DELAY = 1;		// ptro fyi: final = constant, cannot later be changed.
     /**
      * Refresh interval which is used to poll values from the FRITZ!Box web interface (optional, defaults to 15 s)
      */
@@ -132,7 +141,7 @@ public abstract class AVMFritzBaseBridgeHandler extends BaseBridgeHandler {
 		//		syncTimeout=2000
 		//	]
 
-        this.refreshInterval = config.getPollingInterval();
+        this.refreshInterval = config.getPollingInterval();         // 15 seconds from configuration
         logger.debug("ptro initialize , do FritzAhaWebInterface(config, this, httpClient={}", httpClient );		// ptro 04mar24
 		//	ptro initialize , do FritzAhaWebInterface(config, this, httpClient=org.eclipse.jetty.client.HttpClient@9e319d
 
@@ -258,6 +267,7 @@ public abstract class AVMFritzBaseBridgeHandler extends BaseBridgeHandler {
      * @param device Device model with new data.
      */
     protected void updateThingFromDevice(Thing thing, AVMFritzBaseModel device) {
+    // check settings fw, temp, power, switch, heating, alarm-sensor (glass/sound), button
         thing.setProperty(PROPERTY_FIRMWARE_VERSION, device.getFirmwareVersion());
         if (device instanceof GroupModel && ((GroupModel) device).getGroupinfo() != null) {
             thing.setProperty(PROPERTY_MASTER, ((GroupModel) device).getGroupinfo().getMasterdeviceid());
@@ -291,7 +301,7 @@ public abstract class AVMFritzBaseBridgeHandler extends BaseBridgeHandler {
                         SwitchModel.ON.equals(device.getSwitch().getState()) ? OnOffType.ON : OnOffType.OFF);
             }
         }
-        if (device.isHeatingThermostat() && device.getHkr() != null) {
+        if (device.isHeatingThermostat() && device.getHkr() != null) {      // our public HeatingModel getHkr() 
             updateThingChannelState(thing, CHANNEL_MODE, new StringType(device.getHkr().getMode()));
             updateThingChannelState(thing, CHANNEL_LOCKED,
                     BigDecimal.ZERO.equals(device.getHkr().getLock()) ? OpenClosedType.OPEN : OpenClosedType.CLOSED);
@@ -344,7 +354,7 @@ public abstract class AVMFritzBaseBridgeHandler extends BaseBridgeHandler {
             if (((DeviceModel) device).getButton().getLastpressedtimestamp() == 0) {
                 updateThingChannelState(thing, CHANNEL_LAST_CHANGE, UnDefType.UNDEF);
             } else {
-                ZoneId zoneId = ZoneId.systemDefault();
+                ZoneId zoneId = ZoneId.systemDefault();                 // grouped switches
                 ZonedDateTime timestamp = ZonedDateTime.ofInstant(
                         Instant.ofEpochSecond(((DeviceModel) device).getButton().getLastpressedtimestamp()), zoneId);
                 Instant then = timestamp.toInstant();
@@ -359,7 +369,7 @@ public abstract class AVMFritzBaseBridgeHandler extends BaseBridgeHandler {
     }
 
     /**
-     * Updates thing channels.
+     * Updates thing channels. 
      *
      * @param thing Thing which channels should be updated.
      * @param channelId ID of the channel to be updated.
@@ -492,3 +502,4 @@ public abstract class AVMFritzBaseBridgeHandler extends BaseBridgeHandler {
         scheduler.submit(this::poll);
     }
 }
+

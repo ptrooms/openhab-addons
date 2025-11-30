@@ -20,6 +20,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+// import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -54,7 +55,11 @@ import org.slf4j.LoggerFactory;
  */
 public class FritzAhaWebInterface {
 
+   	/**
+	 * Logger.
+	 */
     private final Logger logger = LoggerFactory.getLogger(FritzAhaWebInterface.class);
+    
     /**
      * Configuration of the bridge from {@link AVMFritzBaseBridgeHandler}
      */
@@ -104,7 +109,7 @@ public class FritzAhaWebInterface {
                     "FRITZ!Box being re-athenticated, sid:=null");
 		sid = null;		// ensure this is null at start
 		logger.debug("ptro authenticate: begin 001"  ); // ptro 04mar24
-        if (config.getPassword() == null) {
+        if ( !(config.getPassword() != null)) {     // ptro 28okt24 rewritten == null
             handler.setStatusInfo(ThingStatus.OFFLINE, ThingStatusDetail.CONFIGURATION_ERROR,
                     "Please configure password first");
             return null;
@@ -114,7 +119,7 @@ public class FritzAhaWebInterface {
         String loginXml = syncGet(getURL(WEBSERVICE_PATH, addSID("")));						// ptro 08apr24
 		logger.debug("ptro authenticate: begin 002a, loginXml={}", loginXml ); // ptro 04mar24
 
-        if (loginXml == null) {
+        if ( !(loginXml != null)) {     // ptro 28okt24 rewritten == null
 			logger.debug("ptro authenticate: begin 002c COMMUNICATION_ERROR"  ); // ptro 04mar24
             handler.setStatusInfo(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
                     "FRITZ!Box does not respond");
@@ -151,7 +156,7 @@ public class FritzAhaWebInterface {
         loginXml = syncGet(getURL(WEBSERVICE_PATH,
                 (config.getUser() != null && !"".equals(config.getUser()) ? ("username=" + config.getUser() + "&") : "")
                         + "response=" + response));
-        if (loginXml == null) {
+        if ( !(loginXml != null)) {     // ptro 28okt24 rewritten == null
             handler.setStatusInfo(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR,
                     "FRITZ!Box does not respond");
             return null;
@@ -186,7 +191,7 @@ public class FritzAhaWebInterface {
      * @return
      */
     public boolean isAuthenticated() {
-        return !(sid == null);
+        return !( !(sid != null) );     // ptro 28okt24 rewritten == null
     }
 
     public AVMFritzConfiguration getConfig() {
@@ -311,7 +316,7 @@ public class FritzAhaWebInterface {
 
     public String addSID(@Nullable String args) {
 
-        if (sid == null) {
+        if ( !(sid != null)) {      // ptro 28okt24 rewritten == null
             return args;
         } else {
             return ("".equals(args) ? ("sid=") : (args + "&sid=")) + sid;
